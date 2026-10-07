@@ -60,6 +60,7 @@
       <a href="#work" data-scramble>work</a>
       <a href="#lore" data-scramble>lore</a>
       <a href="#qa" data-scramble>q&amp;a</a>
+      <a href="#irl" data-scramble>irl</a>
       <a href="#stack" data-scramble>stack</a>
       <a href="#lab" data-scramble>lab</a>
       <a href="#repos" data-scramble>repos</a>
@@ -129,7 +130,7 @@
 
       <div class="bento">
         <article class="bento__card bento__card--avatar" data-tilt>
-          <img src="{{ p.avatar }}" alt="{{ p.name }} avatar" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+          <img src="{{ p.avatar if p.avatar.startswith('http') else url_for('static', filename=p.avatar) }}" alt="{{ p.name }}" loading="lazy" onerror="this.remove()">
           <div class="bento__avatar-meta">
             <span class="mono">github/{{ p.github_user }}</span>
             <span class="pill pill--live"><i></i>online-ish</span>
@@ -171,7 +172,11 @@
           <article class="project" style="--tint: {{ w.tint }}">
             <a class="project__card" href="{{ w.repo }}" target="_blank" rel="noopener" data-tilt data-cursor="open ↗">
               <div class="project__visual project__visual--{{ w.image_fit or w.visual }}">
-                {% if w.visual == 'live' %}
+                {% if w.screens %}
+                <div class="phones">
+                  {% for shot in w.screens[:3] %}<img class="phones__shot" src="{{ url_for('static', filename=shot) }}" alt="{{ w.title }} screenshot {{ loop.index }}" loading="lazy" draggable="false" style="--i: {{ loop.index0 - (w.screens[:3] | length - 1) / 2 }}">{% endfor %}
+                </div>
+                {% elif w.visual == 'live' %}
                 <div class="live-mock" aria-hidden="true">
                   <div class="live-mock__top"><span class="live-mock__pill">live</span><span class="live-mock__viewers">● 12.4K</span></div>
                   <div class="live-mock__chat"><ul>
@@ -188,7 +193,7 @@
                 </div>
                 {% elif w.visual == 'shelf' %}
                 <div class="shelf" aria-hidden="true">
-                  {% for app in w.apps %}<span class="shelf__app" style="--i: {{ loop.index0 - 2 }}; --c: {{ app.color }}"><b>{{ app.name[0] }}</b><small>{{ app.name }}</small></span>{% endfor %}
+                  {% for app in w.apps %}<span class="shelf__app{% if app.status %} shelf__app--soon{% endif %}" style="--i: {{ loop.index0 - (w.apps | length - 1) / 2 }}"><img src="{{ url_for('static', filename=app.icon) }}" alt="" loading="lazy" draggable="false"><small>{{ app.name }}{% if app.status %} · {{ app.status }}{% endif %}</small></span>{% endfor %}
                 </div>
                 {% elif w.image %}
                 <img src="{{ url_for('static', filename=w.image) }}" alt="{{ w.title }}" loading="lazy" draggable="false">
@@ -207,7 +212,7 @@
                 <ul class="chips">
                   {% for s in w.stack %}<li>{{ s }}</li>{% endfor %}
                 </ul>
-                <span class="project__link mono">view repo ↗</span>
+                <span class="project__link mono">{{ w.link_label or 'view repo' }} ↗</span>
               </div>
             </a>
           </article>
@@ -270,9 +275,26 @@
       </div>
     </section>
 
+    <!-- ───────────── irl ───────────── -->
+    <section class="section irl" id="irl">
+      <div class="irl__text">
+        <p class="label"><span>( 006 )</span> irl</p>
+        <h2 class="h2"><span data-split="words">off the</span> <em class="serif" data-split="words">screen.</em></h2>
+        <p class="irl__sub">the human behind the commits. drag the photos around, tap one to shuffle the pile.</p>
+      </div>
+      <div class="pile" id="pile" data-cursor="drag">
+        {% for ph in p.photos %}
+        <figure class="polaroid" style="--r: {{ [-7, 5, -2, 8][loop.index0 % 4] }}deg; --x: {{ [-26, 22, 0, 10][loop.index0 % 4] }}%; --y: {{ [4, -6, 8, 0][loop.index0 % 4] }}%">
+          <img src="{{ url_for('static', filename=ph.src) }}" alt="{{ ph.alt }}" loading="lazy" draggable="false">
+          <figcaption>{{ ph.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </section>
+
     <!-- ───────────── stack ───────────── -->
     <section class="section stack" id="stack">
-      <p class="label"><span>( 006 )</span> the stack</p>
+      <p class="label"><span>( 007 )</span> the stack</p>
       <div class="stack__grid">
         <div class="stack__sphere" id="tag-sphere" data-cursor="drag" aria-hidden="true">
           {% for g in p.stack %}{% for item in g["items"] %}<span class="tag-sphere__item">{{ item }}</span>{% endfor %}{% endfor %}
@@ -293,7 +315,7 @@
 
     <!-- ───────────── lab ───────────── -->
     <section class="section lab" id="lab">
-      <p class="label"><span>( 007 )</span> the lab</p>
+      <p class="label"><span>( 008 )</span> the lab</p>
       <div class="lab__head">
         <h2 class="h2"><span data-split="words">hatch an</span> <em class="serif" data-split="words">egg.</em></h2>
         <p class="lab__sub">the python server rolls first, the browser just animates it. same as in roll pets rng. good luck.</p>
@@ -327,7 +349,7 @@
 
     <!-- ───────────── repos ───────────── -->
     <section class="section repos" id="repos">
-      <p class="label"><span>( 008 )</span> the archive</p>
+      <p class="label"><span>( 009 )</span> the archive</p>
       <div class="repos__head">
         <h2 class="h2"><span data-split="words">everything on</span> <em class="serif" data-split="words">github.</em></h2>
         <p class="mono muted" id="repos-source">fetching…</p>
@@ -340,7 +362,7 @@
 
     <!-- ───────────── contact ───────────── -->
     <section class="contact" id="contact">
-      <p class="label"><span>( 009 )</span> say hi</p>
+      <p class="label"><span>( 010 )</span> say hi</p>
       <h2 class="contact__title">
         <span class="line"><span data-split="chars">got an idea?</span></span>
         <span class="line"><span data-split="chars">let's build</span></span>

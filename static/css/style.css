@@ -313,7 +313,7 @@ h1, h2, h3, p { margin: 0; }
   overflow: hidden; transform-style: preserve-3d;
 }
 .bento__card--avatar { grid-row: span 2; padding: 0; background: var(--ink); color: var(--bg); }
-.bento__card--avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(.15) contrast(1.05); }
+.bento__card--avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 22%; }
 .bento__avatar-meta {
   position: relative; margin-top: auto; padding: 18px; display: flex; justify-content: space-between; align-items: center; gap: 10px;
   background: linear-gradient(to top, rgba(0, 0, 0, .65), transparent);
@@ -421,21 +421,26 @@ h1, h2, h3, p { margin: 0; }
 /* Google Play shelf: five app icons fanned out */
 .shelf { position: relative; width: 100%; height: 100%; display: grid; place-items: center; perspective: 900px; }
 .shelf__app {
-  position: absolute; width: clamp(72px, 8vw, 112px); aspect-ratio: 1; border-radius: 28%;
-  display: grid; place-items: center; background: var(--c); color: #fff;
-  box-shadow: 0 24px 40px -18px rgba(0, 0, 0, .45);
-  translate: calc(var(--i) * 64%) calc(var(--i) * var(--i) * 7%);
+  position: absolute; width: clamp(60px, 5.6vw, 84px); aspect-ratio: 1; border-radius: 26%;
+  display: grid; place-items: center; background: #fff; overflow: visible;
+  box-shadow: 0 24px 40px -18px rgba(0, 0, 0, .45), 0 0 0 1px rgba(0, 0, 0, .06);
+  translate: calc(var(--i) * 56%) calc(var(--i) * var(--i) * 6%);
   rotate: calc(var(--i) * 10deg);
   transition: translate 1s var(--ease), rotate 1s var(--ease);
 }
-.shelf__app:nth-child(1) b { color: var(--accent); }
-.shelf__app b { font: 800 clamp(2.2rem, 3.4vw, 3.2rem)/1 var(--font-display); letter-spacing: -.05em; }
+.shelf__app img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
+.shelf__app--soon img { opacity: .55; filter: grayscale(.4); }
+.shelf__app--soon::after {
+  content: "testing"; position: absolute; bottom: 4px; left: 50%; translate: -50% 0; padding: 4px 6px; border-radius: 999px;
+  background: var(--accent); color: var(--ink); font: 600 10px/1 var(--font-mono); text-transform: uppercase;
+}
 .shelf__app small {
   position: absolute; top: calc(100% + 10px); font: 500 11px/1 var(--font-mono); color: var(--ink); white-space: nowrap;
   opacity: 0; transition: opacity .5s;
 }
-.project__card:hover .shelf__app { translate: calc(var(--i) * 92%) 0; rotate: calc(var(--i) * 3deg); }
+.project__card:hover .shelf__app { translate: calc(var(--i) * 96%) 0; rotate: calc(var(--i) * 3deg); }
 .project__card:hover .shelf__app small { opacity: 1; }
+.shelf__app:nth-child(even) small { top: auto; bottom: calc(100% + 10px); }
 
 .project__info { display: flex; flex-direction: column; gap: clamp(12px, 1.5vw, 20px); padding: clamp(8px, 1.4vw, 20px) clamp(4px, 1vw, 12px); }
 .project__row { display: flex; justify-content: space-between; color: var(--muted); }
@@ -485,6 +490,17 @@ h1, h2, h3, p { margin: 0; }
 .timeline__card p { color: var(--ink-2); max-width: 40ch; }
 .timeline__date { display: inline-block; padding: 6px 10px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--line); }
 
+/* real screenshots in phone frames (shown when profile.json lists `screens`) */
+.phones { position: relative; width: 100%; height: 100%; display: grid; place-items: center; }
+.phones__shot {
+  position: absolute; width: min(36%, 220px); aspect-ratio: 9 / 19.5; object-fit: cover; object-position: top;
+  border: 6px solid #0b0b0c; border-radius: 26px; background: #0b0b0c;
+  box-shadow: 0 40px 60px -30px rgba(0, 0, 0, .5);
+  translate: calc(var(--i) * 62%) calc(var(--i) * var(--i) * 4%); rotate: calc(var(--i) * 7deg);
+  transition: translate 1s var(--ease), rotate 1s var(--ease);
+}
+.project__card:hover .phones__shot { translate: calc(var(--i) * 80%) 0; rotate: calc(var(--i) * 3deg); }
+
 /* ─────────── q&a ─────────── */
 .qa__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin: 24px 0 clamp(32px, 4vw, 56px); }
 .qa__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.2vw, 16px); }
@@ -506,6 +522,24 @@ h1, h2, h3, p { margin: 0; }
 @media (hover: hover) and (pointer: fine) {
   .qa-card:hover .qa-card__inner { transform: rotateY(180deg); }
 }
+
+/* ─────────── irl ─────────── */
+.irl { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.irl__text { display: flex; flex-direction: column; gap: 24px; }
+.irl__sub { max-width: 34ch; color: var(--ink-2); }
+.pile { position: relative; height: clamp(520px, 50vw, 680px); touch-action: pan-y; }
+.polaroid {
+  position: absolute; left: calc(50% + var(--x)); top: calc(50% + var(--y)); width: clamp(220px, 22vw, 300px);
+  margin: 0; padding: 12px 12px 0; background: #fff; border-radius: 6px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .05), 0 30px 50px -24px rgba(0, 0, 0, .35);
+  translate: -50% -50%; rotate: var(--r);
+  cursor: grab; user-select: none; -webkit-user-select: none; touch-action: none;
+}
+.polaroid.is-drag { cursor: grabbing; }
+.polaroid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 2px; pointer-events: none; }
+.polaroid figcaption { padding: 14px 4px 18px; text-align: center; font: italic 400 clamp(20px, 1.8vw, 26px)/1 var(--font-serif); }
+.no-js .pile { height: auto; display: flex; flex-wrap: wrap; gap: 16px; }
+.no-js .polaroid { position: static; translate: none; }
 
 /* ─────────── stack ─────────── */
 .stack__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: center; margin-top: 24px; }
@@ -679,6 +713,8 @@ h1, h2, h3, p { margin: 0; }
   .timeline__item:nth-child(even) .timeline__card { grid-column: 1; text-align: left; align-items: flex-start; }
 
   .qa__grid { grid-template-columns: 1fr 1fr; }
+  .irl { grid-template-columns: 1fr; }
+  .pile { height: 560px; }
   .stack__grid { grid-template-columns: 1fr; }
   .stack__sphere { max-width: 460px; }
 
@@ -697,6 +733,8 @@ h1, h2, h3, p { margin: 0; }
   .lab__result { left: 12px; top: 12px; right: 12px; min-width: 0; }
   .qa__grid { grid-template-columns: 1fr; }
   .qa-card { height: 200px; }
+  .pile { height: 500px; }
+  .polaroid { width: 62%; }
   .contact__actions .btn { width: 100%; }
   .footer__row { flex-direction: column; }
 }

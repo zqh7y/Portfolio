@@ -1,6 +1,6 @@
 import {
   splitText, initCursor, initMagnetic, initTilt, initScramble,
-  initStickers, initClocks, initMarquees, toast,
+  initStickers, initClocks, initMarquees, initPile, toast,
 } from './fx.js';
 import { initTagSphere } from './tag-sphere.js';
 import { initRepos } from './repos.js';
@@ -64,6 +64,7 @@ const setCursor = fine && !reduce ? initCursor(gsap) : () => {};
 if (fine) { initMagnetic(gsap); initTilt(gsap); }
 initScramble();
 initStickers(gsap);
+initPile(gsap);
 initClocks();
 initMarquees(gsap, getVelocity);
 
@@ -256,6 +257,11 @@ function scrollAnimations() {
       duration: 1.2, stagger: 0.08, ease: 'expo.out',
     }, { trigger: '.qa__grid', start: 'top 82%' });
   }
+
+  // irl photo pile drops in
+  enter('.polaroid', {
+    y: -260, opacity: 0, rotation: (i) => (i % 2 ? 25 : -25), duration: 1.2, stagger: 0.12, ease: 'back.out(1.3)',
+  }, { trigger: '.pile', start: 'top 80%' });
 
   // stack
   $$('.stack__group').forEach((group) => enter($$('li', group), {

@@ -199,3 +199,51 @@ export function toast(msg) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => el.classList.remove('is-on'), 2200);
 }
+
+// Photo pile: drag a polaroid anywhere, tap one to send it to the back.
+export function initPile(gsap) {
+  const pile = document.getElementById('pile');
+  if (!pile) return;
+  const cards = [...pile.querySelectorAll('.polaroid')];
+  let top = cards.length;
+  cards.forEach((card, i) => { card.style.zIndex = String(i + 1); });
+
+  cards.forEach((card) => {
+    let start = null;
+    card.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      card.setPointerCapture(e.pointerId);
+      card.style.zIndex = String(++top);
+      start = { x: e.clientX, y: e.clientY, ox: gsap.getProperty(card, 'x'), oy: gsap.getProperty(card, 'y'), lx: e.clientX, moved: 0 };
+      card.classList.add('is-drag');
+      gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'back.out(3)' });
+    });
+    card.addEventListener('pointermove', (e) => {
+      if (!start) return;
+      const vx = e.clientX - start.lx;
+      start.lx = e.clientX;
+      start.moved = Math.max(start.moved, Math.hypot(e.clientX - start.x, e.clientY - start.y));
+      gsap.set(card, { x: start.ox + e.clientX - start.x, y: start.oy + e.clientY - start.y });
+      gsap.to(card, { rotation: Math.max(-20, Math.min(20, vx * 1.2)), duration: 0.4, ease: 'power2.out' });
+    });
+    const end = () => {
+      if (!start) return;
+      const tapped = start.moved < 6;
+      start = null;
+      card.classList.remove('is-drag');
+      gsap.to(card, { scale: 1, rotation: 0, duration: 0.9, ease: 'elastic.out(1, 0.4)' });
+      if (tapped && cards.length > 1) {
+        // tap: lift it off the pile, then tuck it underneath
+        gsap.timeline()
+          .to(card, { y: '-=90', rotation: 12, duration: 0.25, ease: 'power2.out' })
+          .add(() => {
+            cards.forEach((c) => { c.style.zIndex = String(Number(c.style.zIndex) + 1); });
+            card.style.zIndex = '1';
+          })
+          .to(card, { y: '+=90', rotation: 0, duration: 0.6, ease: 'back.out(1.6)' });
+      }
+    };
+    card.addEventListener('pointerup', end);
+    card.addEventListener('pointercancel', end);
+  });
+}

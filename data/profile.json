@@ -9,9 +9,9 @@
   "available": true,
   "since": 2022,
   "github": "https://github.com/zqh7y",
-  "avatar": "https://avatars.githubusercontent.com/u/113249259?v=4",
+  "avatar": "img/me/selfie.webp",
   "email": "",
-  "about": "i'm a high-school dev from holon who ships android apps, roblox games and python tools. i started vibe-coding in 2022 with one plain html page. now i have 5 apps on google play (one passed 10k downloads), full-stack apps with flask + expo, and roblox games with 100 pets and 1 in 964,817,253 odds.",
+  "about": "i'm a high-school dev from holon who ships android apps, roblox games and python tools. i started vibe-coding in 2022 with one plain html page. since then i've shipped 5 apps to google play (one passed 10k downloads), built full-stack apps with flask + expo, and made roblox games with 100 pets and 1 in 964,817,253 odds.",
   "marquee": [
     "android",
     "roblox",
@@ -52,7 +52,7 @@
     {
       "value": 5,
       "suffix": "",
-      "label": "apps on google play"
+      "label": "apps shipped to google play"
     },
     {
       "value": 10,
@@ -85,7 +85,7 @@
     {
       "id": "fakelive",
       "title": "fakeLive",
-      "kind": "android app",
+      "kind": "android app · \"virtual live\"",
       "year": "2024",
       "repo": "https://github.com/zqh7y/fakeLive",
       "visual": "live",
@@ -97,7 +97,8 @@
         "expo-camera",
         "EAS"
       ],
-      "blurb": "Go live without going live. Pick a username and a viewer count, and the app opens your camera with a live badge, a viewer count that drifts up and down, and fake comments rolling in. It passed 10K downloads on Google Play."
+      "blurb": "Go live without going live. Pick a username and a viewer count, and the app opens your camera with a live badge, a viewer count that drifts up and down, and fake comments rolling in. On Google Play it was called Virtual Live, and it passed 10K downloads.",
+      "screens": []
     },
     {
       "id": "rollpets",
@@ -153,7 +154,7 @@
     },
     {
       "id": "googleplay",
-      "title": "5 apps on Google Play",
+      "title": "5 apps shipped to Google Play",
       "kind": "android apps",
       "year": "2024",
       "repo": "https://github.com/zqh7y?tab=repositories",
@@ -167,27 +168,33 @@
       ],
       "apps": [
         {
+          "name": "NetBook",
+          "icon": "img/apps/netbook.webp"
+        },
+        {
+          "name": "Private Photos",
+          "icon": "img/apps/privatephotos.webp"
+        },
+        {
           "name": "TicAI",
-          "color": "#111111"
+          "icon": "img/apps/ticai.webp"
+        },
+        {
+          "name": "Virtual Live",
+          "icon": "img/apps/virtuallive.webp"
         },
         {
           "name": "Poster",
-          "color": "#ff4fb3"
+          "icon": "img/apps/poster.webp"
         },
         {
-          "name": "fakeLive",
-          "color": "#ff3b5c"
-        },
-        {
-          "name": "PrivatePhotos",
-          "color": "#4f6bed"
-        },
-        {
-          "name": "NetBook",
-          "color": "#0e9384"
+          "name": "WikiWonder",
+          "icon": "img/apps/wikiwonder.webp",
+          "status": "testing"
         }
       ],
-      "blurb": "TicAI (an AI chat app), Poster (a posting app on Firebase), fakeLive, PrivatePhotos (a locked photo vault) and NetBook (notes in folders, my first one). All built with Expo and shipped to the Play Store."
+      "blurb": "NetBook (notes in folders, my first), Private Photos (a locked photo vault), TicAI (an AI chat app), Virtual Live, a.k.a. fakeLive (10K+ downloads), and Poster (save & publish images). All Expo + React Native. Next up: WikiWonder, a modern Wikipedia app, in internal testing.",
+      "link_label": "see all repos"
     }
   ],
   "lore": [
@@ -214,12 +221,12 @@
     {
       "date": "jun 2024",
       "title": "the expo era",
-      "text": "NetBook, fakeLive, Poster and PrivatePhotos land on Google Play. fakeLive goes past 10K downloads. some projects failed too, and that's how i learned."
+      "text": "NetBook, Virtual Live (fakeLive), Poster and Private Photos ship to Google Play. fakeLive goes past 10K downloads. some projects failed too, and that's how i learned."
     },
     {
       "date": "aug 2024",
       "title": "TicAI: I MADE IT",
-      "text": "\"gonna take this one really serious, till it works.\" 22.06.24 to 20.08.24. an AI chat app i refused to give up on. it made it to Google Play."
+      "text": "\"gonna take this one really serious, till it works.\" 22.06.24 to 20.08.24. an AI chat app i refused to give up on. it shipped to Google Play too."
     },
     {
       "date": "oct 2024",
@@ -239,7 +246,7 @@
     {
       "date": "oct 2026",
       "title": "now",
-      "text": "PhotoClicker, this website, and whatever comes next."
+      "text": "PhotoClicker, WikiWonder (a modern wikipedia app, in testing), this website, and whatever comes next."
     }
   ],
   "qa": [
@@ -265,7 +272,24 @@
     },
     {
       "q": "apps on google play?",
-      "a": "five: TicAI, Poster, fakeLive, PrivatePhotos and NetBook. fakeLive passed 10K downloads."
+      "a": "five shipped: NetBook, Private Photos, TicAI, Virtual Live (fakeLive) and Poster. fakeLive passed 10K downloads. WikiWonder is in testing."
+    }
+  ],
+  "photos": [
+    {
+      "src": "img/me/bike.webp",
+      "caption": "night out",
+      "alt": "zzqxck sitting on a black motorcycle at night, holding a helmet"
+    },
+    {
+      "src": "img/me/mirror.webp",
+      "caption": "mirror check",
+      "alt": "zzqxck taking a mirror selfie in a black tank top"
+    },
+    {
+      "src": "img/me/selfie.webp",
+      "caption": "pixel selfie",
+      "alt": "zzqxck taking a mirror selfie with a phone"
     }
   ],
   "stack": [
@@ -330,8 +354,8 @@
   },
   "description_overrides": {
     "BuyList": "shopping list app. past me was not a fan.",
-    "Poster": "a posting app on google play. taught me how not to store data in firebase.",
+    "Poster": "save & publish images app, shipped to google play. taught me how not to store data in firebase.",
     "Portfolio": "this website. python + javascript + three.js.",
-    "fakeLive": "fake livestream prank app. 10K+ downloads on google play."
+    "fakeLive": "fake livestream prank app, \"Virtual Live\" on the store. 10K+ downloads on google play."
   }
 }
