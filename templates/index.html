@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Geist+Mono:wght@400;500&family=Geist:wght@300..700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Geist+Mono:wght@400;500&family=Geist:wght@300..700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@600..800&display=swap">
   <link rel="stylesheet" href="{{ url_for('static', filename='vendor/lenis.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -58,9 +58,10 @@
   <header class="nav" id="nav">
     <a class="nav__logo" href="#top" data-magnetic data-cursor="top">{{ p.name }}<sup>©</sup></a>
     <nav class="nav__links" aria-label="sections">
+      <a href="#metz" data-scramble>metz</a>
+      <a href="#apps" data-scramble>apps</a>
       <a href="#work" data-scramble>work</a>
       <a href="#lore" data-scramble>lore</a>
-      <a href="#qa" data-scramble>q&amp;a</a>
       <a href="#irl" data-scramble>irl</a>
       <a href="#stack" data-scramble>stack</a>
       <a href="#lab" data-scramble>lab</a>
@@ -89,9 +90,9 @@
       </div>
 
       <div class="stickers" aria-hidden="true">
-        <span class="sticker sticker--lime" style="--x:10%;--y:30%;--r:-12deg">android ✦</span>
-        <span class="sticker sticker--ink" style="--x:74%;--y:36%;--r:8deg">roblox dev</span>
-        <span class="sticker sticker--line" style="--x:68%;--y:58%;--r:-6deg">python + js</span>
+        <span class="sticker sticker--lime" style="--x:10%;--y:30%;--r:-12deg">react native ✦</span>
+        <span class="sticker sticker--ink" style="--x:74%;--y:36%;--r:8deg">expo dev</span>
+        <span class="sticker sticker--line" style="--x:62%;--y:47%;--r:-6deg">apps · web · games</span>
         <span class="sticker sticker--chrome" style="--x:16%;--y:58%;--r:10deg">since {{ p.since }}</span>
       </div>
 
@@ -100,7 +101,7 @@
           <a class="badge-spin" href="#about" data-cursor="scroll" aria-label="scroll down">
             <svg viewBox="0 0 120 120" aria-hidden="true">
               <defs><path id="circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
-              <text><textPath href="#circle">scroll to explore ✦ scroll to explore ✦ </textPath></text>
+              <text><textPath href="#circle" textLength="286" lengthAdjust="spacing">scroll to explore ✦ scroll to explore ✦</textPath></text>
             </svg>
             <span>↓</span>
           </a>
@@ -145,7 +146,7 @@
         {% endfor %}
         <article class="bento__card bento__card--now">
           <span class="mono">currently</span>
-          <p>building <em class="serif">roblox games</em>, polishing <em class="serif">Metz</em> and making this site do backflips.</p>
+          <p>{{ p.now }}</p>
         </article>
         <article class="bento__card bento__card--where">
           <span class="mono">based in</span>
@@ -161,11 +162,184 @@
       </div>
     </section>
 
+    <!-- ───────────── what i build ───────────── -->
+    <section class="section build" id="build">
+      <p class="label"><span>( 003 )</span> what i build</p>
+      <h2 class="h2"><span data-split="words">four things,</span> <em class="serif" data-split="words">one dev.</em></h2>
+      <div class="pillars">
+        {% for pl in p.pillars %}
+        <article class="pillar pillar--{{ pl.key }}" data-tilt>
+          <div class="pillar__head">
+            <span class="pillar__glyph" aria-hidden="true"></span>
+            <h3 class="pillar__name">{{ pl.key }}</h3>
+          </div>
+          <p class="pillar__count"><b>{{ pl.count }}</b> <span class="mono">{{ pl.unit }}</span></p>
+          <p class="pillar__text">{{ pl.text }}</p>
+          <ul class="pillar__examples">{% for e in pl.examples %}<li>{{ e }}</li>{% endfor %}</ul>
+          <ul class="chips">{% for x in pl.stack %}<li>{{ x }}</li>{% endfor %}</ul>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ───────────── metz ───────────── -->
+    <section class="metz" id="metz">
+      <div class="metz__head">
+        <p class="label"><span>( 004 )</span> the metz era</p>
+        <div class="metz__title-row">
+          <h2 class="metz__title"><svg class="metz-logo" viewBox="0 0 30 20" aria-hidden="true"><path fill-rule="evenodd" d="M0 10a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M10 10a10 10 0 1 0 20 0a10 10 0 1 0 -20 0"/></svg><span data-split="chars">metz.</span></h2>
+          <div class="metz__meta">
+            <span class="pill pill--live pill--metz"><i></i>{{ p.metz.status }}</span>
+            <a class="btn btn--metz" href="{{ p.metz.repo }}" target="_blank" rel="noopener" data-magnetic>view repo ↗</a>
+          </div>
+        </div>
+        <p class="metz__tagline serif">{{ p.metz.tagline }}</p>
+        <p class="metz__intro">{{ p.metz.intro }}</p>
+      </div>
+
+      <div class="metz__stage" aria-label="Mockups of the Metz and Metz Host apps">
+        <figure class="phone phone--metz" data-tilt>
+          <div class="phone__screen mz" aria-hidden="true">
+            <svg class="mz-map" viewBox="0 0 300 620" preserveAspectRatio="xMidYMid slice">
+              <rect width="300" height="620" fill="#e6ecf0"/>
+              <path d="M-10 110C60 80 130 130 95 205S-10 255-10 215Z" fill="#cfe8d5"/>
+              <path d="M195 285C260 262 320 318 300 372S205 392 195 350Z" fill="#cfe8d5"/>
+              <path d="M226-10C250 58 214 120 310 160V-10Z" fill="#cbe2f2"/>
+              <g stroke="#fff" stroke-linecap="round" fill="none">
+                <path d="M-10 300L310 250" stroke-width="14"/><path d="M120-10L160 630" stroke-width="12"/>
+                <path d="M-10 470C80 430 200 520 310 460" stroke-width="10"/><path d="M40-10L80 630" stroke-width="6"/>
+                <path d="M-10 160L310 120" stroke-width="6"/><path d="M232 160L262 630" stroke-width="6"/>
+              </g>
+            </svg>
+            <span class="mz-pin" style="--x:24%;--y:17%;--grad:var(--g1)">⚽</span>
+            <span class="mz-pin" style="--x:70%;--y:24%;--grad:var(--g2)">☕</span>
+            <span class="mz-pin" style="--x:40%;--y:37%;--grad:var(--g3)">🎮</span>
+            <span class="mz-pin" style="--x:82%;--y:44%;--grad:var(--g4)">🏀</span>
+            <span class="mz-you" style="--x:56%;--y:31%"></span>
+            <span class="mz-menu">≡</span>
+            <span class="mz-ctrl"><i>+</i><i>−</i><i>◎</i></span>
+            <div class="mz-sheet">
+              <span class="mz-grab"></span>
+              <div class="mz-seg"><b>Nearby</b><span>Explore</span></div>
+              <div class="mz-search">Search meetups</div>
+              <div class="mz-card">
+                <div class="mz-card__top">
+                  <span class="mz-emoji" style="--grad:var(--g1)">⚽</span>
+                  <div><strong>Sunday football</strong><small>Tomorrow · 18:00</small><small>City park</small></div>
+                </div>
+                <div class="mz-chips"><span class="t">In person</span><span>18:00</span><span class="t">1.2 km</span></div>
+                <div class="mz-th"><span>Only happens if enough people join</span><b>4 / 6</b></div>
+                <div class="mz-bar"><i></i></div>
+                <div class="mz-foot"><span class="mz-faces"><i></i><i></i><i></i></span><span>5 going</span><span class="mz-join">Join</span></div>
+              </div>
+              <div class="mz-mini"><span class="mz-emoji" style="--grad:var(--g2)">☕</span><div><strong>Coffee &amp; code</strong><small>Today · 17:30 · 0.8 km</small></div><b>2 going</b></div>
+            </div>
+          </div>
+          <figcaption class="mono">metz</figcaption>
+        </figure>
+        <figure class="phone phone--host" data-tilt>
+          <div class="phone__screen hs" aria-hidden="true">
+            <div class="hs-top"><svg class="metz-logo" viewBox="0 0 30 20" aria-hidden="true"><path fill-rule="evenodd" d="M0 10a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M10 10a10 10 0 1 0 20 0a10 10 0 1 0 -20 0"/></svg><b>Metz Host</b><span class="hs-avatar"></span></div>
+            <p class="hs-hello">Put something up, send the link, see who is coming.</p>
+            <div class="hs-stats"><div><b>3</b><small>meetings</small></div><div><b>14</b><small>going</small></div><div><b>86</b><small>link opens</small></div></div>
+            <div class="hs-row"><span class="mz-emoji" style="--grad:var(--g3)">🎮</span><div><strong>Game night</strong><small>Fri · 20:00 · 6 going</small></div><span class="hs-tag hs-tag--ok">on</span></div>
+            <div class="hs-row"><span class="mz-emoji" style="--grad:var(--g2)">☕</span><div><strong>Study session</strong><small>Sun · 10:00 · 3 / 5</small></div><span class="hs-tag hs-tag--wait">gathering</span></div>
+            <div class="hs-row"><span class="mz-emoji" style="--grad:var(--g4)">🏀</span><div><strong>3v3 at the courts</strong><small>Mon · 17:00</small></div><span class="hs-tag">in review</span></div>
+            <span class="hs-new">+ New meeting</span>
+          </div>
+          <figcaption class="mono">metz host</figcaption>
+        </figure>
+        <span class="metz__note mono">mockups of the real screens</span>
+      </div>
+
+      <div class="metz__body">
+        <ol class="eras">
+          {% for e in p.metz.eras %}
+          <li class="era">
+            <span class="era__year mono">{{ e.year }}</span>
+            <h3>{{ e.name }}</h3>
+            <span class="era__note serif">{{ e.note }}</span>
+            <p>{{ e.detail }}</p>
+            <span class="era__tag mono">{{ e.tag }}</span>
+          </li>
+          {% endfor %}
+        </ol>
+        <div class="metz__numbers">
+          {% for n in p.metz.numbers %}<div><b>{{ n.value }}</b><span class="mono">{{ n.label }}</span></div>{% endfor %}
+        </div>
+        <div class="metz__features">
+          {% for f in p.metz.features %}
+          <article class="mfeat"><span class="mono">{{ f.tag }}</span><h3>{{ f.title }}</h3><p>{{ f.text }}</p></article>
+          {% endfor %}
+        </div>
+        <ul class="chips chips--lg metz__stack">{% for x in p.metz.stack %}<li>{{ x }}</li>{% endfor %}</ul>
+      </div>
+    </section>
+
+    <!-- ───────────── google play ───────────── -->
+    <section class="section gplay" id="apps">
+      <p class="label"><span>( 005 )</span> google play</p>
+      <div class="gplay__head">
+        <h2 class="h2"><span data-split="words">5 apps shipped to</span> <em class="serif" data-split="words">google play.</em></h2>
+        <p class="gplay__sub">all react native + expo, built between 2023 and 2024. Virtual Live passed 10K downloads.</p>
+      </div>
+      <div class="gplay__grid">
+        {% for a in p.apps %}
+        <article class="app{% if loop.first %} app--hero{% endif %}"{% if not loop.first %} data-tilt{% endif %}>
+          {% if loop.first %}
+          <div class="app__visual">
+            <div class="live-mock" aria-hidden="true">
+              <div class="live-mock__top"><span class="live-mock__pill">live</span><span class="live-mock__viewers">● 12.4K</span></div>
+              <div class="live-mock__chat"><ul>
+                {% for _ in range(2) %}
+                <li><b>john2453</b> first!!</li>
+                <li><b>pro gamer</b> W stream</li>
+                <li><b>alice123</b> how is this real 😭</li>
+                <li><b>nuh uhhhh</b> nuh uhhhh</li>
+                <li><b>🎀🎀🎀</b> 🔥🔥🔥</li>
+                <li><b>noah357</b> say hi to chat</li>
+                {% endfor %}
+              </ul></div>
+              <div class="live-mock__hearts"><i>♥</i><i>♥</i><i>♥</i><i>♥</i></div>
+            </div>
+            <span class="project__badge">{{ a.badge }}</span>
+          </div>
+          {% endif %}
+          <div class="app__body">
+            <div class="app__top">
+              <img class="app__icon" src="{{ url_for('static', filename=a.icon) }}" alt="" loading="lazy">
+              <div class="app__names"><h3>{{ a.name }}</h3><span class="mono">{{ a.store }}</span></div>
+              <span class="app__year mono">{{ a.year }}</span>
+            </div>
+            {% if a.badge and not loop.first %}<span class="app__badge mono">{{ a.badge }}</span>{% endif %}
+            <p class="app__one serif">{{ a.one_liner }}</p>
+            <p class="app__text">{{ a.text }}</p>
+            <ul class="app__feats">{% for f in a.features %}<li>{{ f }}</li>{% endfor %}</ul>
+            <div class="app__foot">
+              <ul class="chips">{% for x in a.stack %}<li>{{ x }}</li>{% endfor %}</ul>
+              <a class="app__link mono" href="{{ a.repo }}" target="_blank" rel="noopener" data-cursor="code ↗">code ↗</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="gplay__more">
+        <div class="gplay__next">
+          <img src="{{ url_for('static', filename=p.next_app.icon) }}" alt="" loading="lazy">
+          <div><span class="mono">and one more</span><p><b>{{ p.next_app.name }}</b>, {{ p.next_app.text }}.</p></div>
+        </div>
+        <div class="gplay__also">
+          <span class="mono">also built, not on the store</span>
+          <ul>{% for x in p.also_built %}<li><a href="{{ x.repo }}" target="_blank" rel="noopener"><b>{{ x.name }}</b><span>{{ x.text }}</span><i>↗</i></a></li>{% endfor %}</ul>
+        </div>
+      </div>
+    </section>
+
     <!-- ───────────── work ───────────── -->
     <section class="work" id="work">
       <div class="section work__head">
-        <p class="label"><span>( 003 )</span> selected work</p>
-        <h2 class="h2"><span data-split="words">stuff i actually</span> <em class="serif" data-split="words">shipped.</em></h2>
+        <p class="label"><span>( 006 )</span> more work</p>
+        <h2 class="h2"><span data-split="words">games &amp;</span> <em class="serif" data-split="words">programs.</em></h2>
       </div>
       <div class="work__pin">
         <div class="work__track" id="work-track">
@@ -231,7 +405,7 @@
 
     <!-- ───────────── lore ───────────── -->
     <section class="section lore" id="lore">
-      <p class="label"><span>( 004 )</span> the lore</p>
+      <p class="label"><span>( 007 )</span> the lore</p>
       <h2 class="h2"><span data-split="words">how it started,</span> <em class="serif" data-split="words">how it's going.</em></h2>
       <div class="timeline">
         <span class="timeline__line" aria-hidden="true"><i id="timeline-fill"></i></span>
@@ -252,7 +426,7 @@
 
     <!-- ───────────── q&a ───────────── -->
     <section class="section qa" id="qa">
-      <p class="label"><span>( 005 )</span> rapid fire</p>
+      <p class="label"><span>( 008 )</span> rapid fire</p>
       <div class="qa__head">
         <h2 class="h2"><span data-split="words">get to</span> <em class="serif" data-split="words">know me.</em></h2>
         <p class="mono muted">hover or tap a card to flip it ↻</p>
@@ -279,13 +453,13 @@
     <!-- ───────────── irl ───────────── -->
     <section class="section irl" id="irl">
       <div class="irl__text">
-        <p class="label"><span>( 006 )</span> irl</p>
+        <p class="label"><span>( 009 )</span> irl</p>
         <h2 class="h2"><span data-split="words">off the</span> <em class="serif" data-split="words">screen.</em></h2>
         <p class="irl__sub">the human behind the commits. drag the photos around, tap one to shuffle the pile.</p>
       </div>
       <div class="pile" id="pile" data-cursor="drag">
         {% for ph in p.photos %}
-        <figure class="polaroid" style="--r: {{ [-7, 5, -2, 8][loop.index0 % 4] }}deg; --x: {{ [-26, 22, 0, 10][loop.index0 % 4] }}%; --y: {{ [4, -6, 8, 0][loop.index0 % 4] }}%">
+        <figure class="polaroid" tabindex="0" role="button" aria-label="{{ ph.caption }}: send to the back of the pile" style="--r: {{ [-7, 5, -2, 8][loop.index0 % 4] }}deg; --x: {{ [-26, 22, 0, 10][loop.index0 % 4] }}%; --y: {{ [4, -6, 8, 0][loop.index0 % 4] }}%">
           <img src="{{ url_for('static', filename=ph.src) }}" alt="{{ ph.alt }}" loading="lazy" draggable="false">
           <figcaption>{{ ph.caption }}</figcaption>
         </figure>
@@ -295,19 +469,36 @@
 
     <!-- ───────────── stack ───────────── -->
     <section class="section stack" id="stack">
-      <p class="label"><span>( 007 )</span> the stack</p>
+      <p class="label"><span>( 010 )</span> the stack</p>
+      <h2 class="h2"><span data-split="words">every language</span> <em class="serif" data-split="words">i've used.</em></h2>
+      <div class="rn-banner" data-tilt>
+        <div class="rn-banner__title">
+          <svg class="rn-atom" viewBox="-12 -12 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><ellipse rx="10" ry="4"/><ellipse rx="10" ry="4" transform="rotate(60)"/><ellipse rx="10" ry="4" transform="rotate(120)"/></g><circle r="2" fill="currentColor"/></svg>
+          <div><b>{{ p.rn.title }}</b><span class="mono">my main thing</span></div>
+        </div>
+        <div class="rn-banner__points">
+          {% for pt in p.rn.points %}<div><b>{{ pt.value }}</b><span class="mono">{{ pt.label }}</span></div>{% endfor %}
+        </div>
+      </div>
       <div class="stack__grid">
         <div class="stack__sphere" id="tag-sphere" data-cursor="drag" aria-hidden="true">
-          {% for g in p.stack %}{% for item in g["items"] %}<span class="tag-sphere__item">{{ item }}</span>{% endfor %}{% endfor %}
+          {% for x in p.sphere %}<span class="tag-sphere__item">{{ x }}</span>{% endfor %}
         </div>
         <div class="stack__list">
-          <h2 class="h2"><span data-split="words">tools i</span> <em class="serif" data-split="words">vibe</em> <span data-split="words">with.</span></h2>
+          {% set maxr = p.languages | map(attribute='repos') | max %}
+          <ul class="langs">
+            {% for l in p.languages %}
+            <li class="lang" style="--c: {{ l.color }}; --w: {{ (l.repos / maxr * 100) | round(1) }}%">
+              <div class="lang__row"><b>{{ l.name }}</b><span class="mono">{{ l.repos }} repo{{ 's' if l.repos != 1 }}</span></div>
+              <span class="lang__bar"><i></i></span>
+              <span class="lang__where">{{ l.where }}</span>
+            </li>
+            {% endfor %}
+          </ul>
           {% for g in p.stack %}
           <div class="stack__group">
             <span class="mono">{{ g.group }}</span>
-            <ul class="chips chips--lg">
-              {% for item in g["items"] %}<li>{{ item }}</li>{% endfor %}
-            </ul>
+            <ul class="chips chips--lg">{% for item in g['items'] %}<li>{{ item }}</li>{% endfor %}</ul>
           </div>
           {% endfor %}
         </div>
@@ -316,7 +507,7 @@
 
     <!-- ───────────── lab ───────────── -->
     <section class="section lab" id="lab">
-      <p class="label"><span>( 008 )</span> the lab</p>
+      <p class="label"><span>( 011 )</span> the lab</p>
       <div class="lab__head">
         <h2 class="h2"><span data-split="words">hatch an</span> <em class="serif" data-split="words">egg.</em></h2>
         <p class="lab__sub">{% if static_build %}same odds as the python server, but in this static version your browser does the rolling. good luck.{% else %}the python server rolls first, the browser just animates it. same as in roll pets rng. good luck.{% endif %}</p>
@@ -350,7 +541,7 @@
 
     <!-- ───────────── repos ───────────── -->
     <section class="section repos" id="repos">
-      <p class="label"><span>( 009 )</span> the archive</p>
+      <p class="label"><span>( 012 )</span> the archive</p>
       <div class="repos__head">
         <h2 class="h2"><span data-split="words">everything on</span> <em class="serif" data-split="words">github.</em></h2>
         <p class="mono muted" id="repos-source">fetching…</p>
@@ -363,7 +554,7 @@
 
     <!-- ───────────── contact ───────────── -->
     <section class="contact" id="contact">
-      <p class="label"><span>( 010 )</span> say hi</p>
+      <p class="label"><span>( 013 )</span> say hi</p>
       <h2 class="contact__title">
         <span class="line"><span data-split="chars">got an idea?</span></span>
         <span class="line"><span data-split="chars">let's build</span></span>

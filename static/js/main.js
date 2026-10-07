@@ -178,7 +178,10 @@ function scrollAnimations() {
   ScrollTrigger.create({
     start: 0,
     end: 'max',
-    onUpdate: (self) => nav.classList.toggle('is-hidden', self.direction === 1 && self.scroll() > innerHeight * 0.9),
+    onUpdate: (self) => {
+      nav.classList.toggle('is-hidden', self.direction === 1 && self.scroll() > innerHeight * 0.9);
+      nav.classList.toggle('is-scrolled', self.scroll() > innerHeight * 0.6);
+    },
   });
   $$('.nav__links a').forEach((link) => {
     const section = $(link.getAttribute('href'));
@@ -198,7 +201,7 @@ function scrollAnimations() {
   }
 
   // headings: words rise out of masks
-  $$('.h2, .contact__title').forEach((head) => {
+  $$('.h2, .contact__title, .metz__title').forEach((head) => {
     enter($$('.split-unit', head), {
       yPercent: 120, skewY: 8, duration: 1.2, stagger: head.classList.contains('h2') ? 0.08 : 0.025, ease: 'expo.out',
     }, { trigger: head, start: 'top 85%' });
@@ -230,6 +233,27 @@ function scrollAnimations() {
       onUpdate: () => { el.textContent = Math.round(o.v); },
     });
   });
+
+  // what i build
+  enter('.pillar', {
+    y: 80, opacity: 0, rotationY: -20, transformPerspective: 1200, duration: 1.2, stagger: 0.1, ease: 'expo.out',
+  }, { trigger: '.pillars', start: 'top 82%' });
+
+  // metz: phones float, rise in and drift on scroll; eras, numbers and features stagger in
+  enter('.metz__head > *:not(.metz__title-row)', { y: 40, opacity: 0, duration: 1, stagger: 0.08, ease: 'expo.out' }, { trigger: '.metz', start: 'top 75%' });
+  enter('.phone', { y: 160, opacity: 0, rotationX: 25, transformPerspective: 1200, duration: 1.4, stagger: 0.15, ease: 'expo.out' }, { trigger: '.metz__stage', start: 'top 80%' });
+  if (!reduce) {
+    gsap.to('.phone__screen', { y: -14, duration: 2.8, yoyo: true, repeat: -1, ease: 'sine.inOut', stagger: 1.4 });
+    gsap.to('.phone--metz', { yPercent: -8, ease: 'none', scrollTrigger: { trigger: '.metz__stage', start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.to('.phone--host', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.metz__stage', start: 'top bottom', end: 'bottom top', scrub: true } });
+  }
+  enter('.era', { x: -40, opacity: 0, duration: 1, stagger: 0.12, ease: 'expo.out' }, { trigger: '.eras', start: 'top 85%' });
+  enter('.metz__numbers > div', { y: 40, opacity: 0, duration: 1, stagger: 0.08, ease: 'expo.out' }, { trigger: '.metz__numbers', start: 'top 88%' });
+  enter('.mfeat', { y: 50, opacity: 0, duration: 1, stagger: 0.06, ease: 'expo.out' }, { trigger: '.metz__features', start: 'top 85%' });
+
+  // google play
+  enter('.app', { y: 80, opacity: 0, duration: 1.1, stagger: 0.08, ease: 'expo.out' }, { trigger: '.gplay__grid', start: 'top 82%' });
+  enter('.gplay__more > *', { y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'expo.out' }, { trigger: '.gplay__more', start: 'top 90%' });
 
   // lore timeline
   gsap.to('#timeline-fill', {
@@ -264,6 +288,11 @@ function scrollAnimations() {
   }, { trigger: '.pile', start: 'top 80%' });
 
   // stack
+  enter('.rn-banner', { y: 60, opacity: 0, scale: 0.96, duration: 1.2, ease: 'expo.out' }, { trigger: '.rn-banner', start: 'top 88%' });
+  $$('.lang').forEach((lang) => {
+    if (reduce) { lang.classList.add('is-in'); return; }
+    ScrollTrigger.create({ trigger: lang, start: 'top 90%', once: true, onEnter: () => lang.classList.add('is-in') });
+  });
   $$('.stack__group').forEach((group) => enter($$('li', group), {
     scale: 0.6, opacity: 0, duration: 0.8, stagger: 0.04, ease: 'back.out(2)',
   }, { trigger: group, start: 'top 88%' }));

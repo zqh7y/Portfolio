@@ -200,20 +200,43 @@ export function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('is-on'), 2200);
 }
 
-// Photo pile: drag a polaroid anywhere, tap one to send it to the back.
+// Photo pile: drag a polaroid anywhere, tap (or Enter) to send it to the back.
 export function initPile(gsap) {
   const pile = document.getElementById('pile');
   if (!pile) return;
   const cards = [...pile.querySelectorAll('.polaroid')];
-  let top = cards.length;
+  const restack = (front) => {
+    // keep z-indexes small: everything else keeps its order, `front` goes on top (or bottom)
+    const order = cards
+      .filter((c) => c !== front.card)
+      .sort((a, b) => Number(a.style.zIndex) - Number(b.style.zIndex));
+    if (front.where === 'top') order.push(front.card); else order.unshift(front.card);
+    order.forEach((c, i) => { c.style.zIndex = String(i + 1); });
+  };
   cards.forEach((card, i) => { card.style.zIndex = String(i + 1); });
 
   cards.forEach((card) => {
+    const base = parseFloat(card.style.getPropertyValue('--r')) || 0;
     let start = null;
+    let busy = null;
+
+    const shuffle = () => {
+      if (cards.length < 2) return;
+      busy?.kill();
+      const y0 = gsap.getProperty(card, 'y');
+      busy = gsap.timeline({ onComplete: () => { busy = null; } })
+        .to(card, { y: y0 - 90, rotation: base + 12, duration: 0.25, ease: 'power2.out' })
+        .add(() => restack({ card, where: 'bottom' }))
+        .to(card, { y: y0, rotation: base, duration: 0.6, ease: 'back.out(1.6)' });
+    };
+
     card.addEventListener('pointerdown', (e) => {
-      e.preventDefault();
+      if (e.button > 0) return;
+      busy?.kill();
+      busy = null;
+      gsap.killTweensOf(card, 'x,y,rotation,scale');
       card.setPointerCapture(e.pointerId);
-      card.style.zIndex = String(++top);
+      restack({ card, where: 'top' });
       start = { x: e.clientX, y: e.clientY, ox: gsap.getProperty(card, 'x'), oy: gsap.getProperty(card, 'y'), lx: e.clientX, moved: 0 };
       card.classList.add('is-drag');
       gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'back.out(3)' });
@@ -224,26 +247,22 @@ export function initPile(gsap) {
       start.lx = e.clientX;
       start.moved = Math.max(start.moved, Math.hypot(e.clientX - start.x, e.clientY - start.y));
       gsap.set(card, { x: start.ox + e.clientX - start.x, y: start.oy + e.clientY - start.y });
-      gsap.to(card, { rotation: Math.max(-20, Math.min(20, vx * 1.2)), duration: 0.4, ease: 'power2.out' });
+      gsap.to(card, { rotation: base + Math.max(-20, Math.min(20, vx * 1.2)), duration: 0.4, ease: 'power2.out' });
     });
     const end = () => {
       if (!start) return;
       const tapped = start.moved < 6;
       start = null;
       card.classList.remove('is-drag');
-      gsap.to(card, { scale: 1, rotation: 0, duration: 0.9, ease: 'elastic.out(1, 0.4)' });
-      if (tapped && cards.length > 1) {
-        // tap: lift it off the pile, then tuck it underneath
-        gsap.timeline()
-          .to(card, { y: '-=90', rotation: 12, duration: 0.25, ease: 'power2.out' })
-          .add(() => {
-            cards.forEach((c) => { c.style.zIndex = String(Number(c.style.zIndex) + 1); });
-            card.style.zIndex = '1';
-          })
-          .to(card, { y: '+=90', rotation: 0, duration: 0.6, ease: 'back.out(1.6)' });
-      }
+      gsap.to(card, { scale: 1, rotation: base, duration: 0.9, ease: 'elastic.out(1, 0.4)' });
+      if (tapped) shuffle();
     };
     card.addEventListener('pointerup', end);
     card.addEventListener('pointercancel', end);
+    card.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      shuffle();
+    });
   });
 }

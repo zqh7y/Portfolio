@@ -65,7 +65,7 @@ export async function initRepos({ gsap, ScrollTrigger, github }) {
   const cards = feed.repos.map((r) => {
     const meta = h('div', { class: 'repo__meta mono' },
       r.language && h('span', {}, h('i', { style: { background: color(r.language) } }), r.language),
-      r.play_store != null && h('span', { class: 'repo__play' }, `▶ google play${r.play_store ? ` · ${r.play_store}` : ''}`),
+      r.play_store != null && h('span', { class: 'repo__play' }, `▶ shipped to play${r.play_store ? ` · ${r.play_store}` : ''}`),
       r.stargazers_count > 0 && h('span', {}, `★ ${r.stargazers_count}`),
       h('span', {}, ago(r.pushed_at)),
     );
@@ -83,7 +83,7 @@ export async function initRepos({ gsap, ScrollTrigger, github }) {
   });
 
   // filters
-  const PLAY = 'google play';
+  const PLAY = 'shipped to play';
   const onPlay = cards.filter((c) => c.dataset.play).length;
   const langs = ['all', ...(onPlay ? [PLAY] : []), ...stats.languages.map((l) => l.name)];
   const counts = { [PLAY]: onPlay, ...Object.fromEntries(stats.languages.map((l) => [l.name, l.count])) };

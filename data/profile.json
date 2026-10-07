@@ -1,8 +1,8 @@
 {
   "github_user": "zqh7y",
   "name": "zzqxck",
-  "role": "full-stack android & roblox developer",
-  "tagline": "i build apps, games & weird little tools.",
+  "role": "full-stack dev: apps, web, games & programs",
+  "tagline": "i build apps, web, games & programs.",
   "location": "Holon, IL",
   "timezone": "Asia/Jerusalem",
   "status": "high school · building for fun",
@@ -33,20 +33,29 @@
       "url": "https://github.com/zqh7y"
     }
   ],
-  "about": "i'm a high-school dev from holon who ships android apps, roblox games and python tools. i started vibe-coding in 2022 with one plain html page. since then i've shipped 5 apps to google play (one passed 10k downloads), built full-stack apps with flask + expo, and made roblox games with 100 pets and 1 in 964,817,253 odds.",
+  "about": "i'm a high-school dev from holon. i build apps, web, games and programs, mostly with react native + expo. since 2022 i've made 13 react native projects, shipped 5 apps to google play (one passed 10k downloads), and spent three years coming back to one idea: metz, a meetups app i'm still building.",
+  "now": "building metz + metz host, making games, and teaching this site new tricks.",
   "marquee": [
-    "android",
-    "roblox",
-    "full-stack",
-    "python",
-    "luau",
+    "apps",
+    "web",
+    "games",
+    "programs",
     "react native",
-    "flask",
     "expo",
-    "firebase",
-    "three.js"
+    "python",
+    "flask",
+    "javascript",
+    "metz"
   ],
   "daily": [
+    {
+      "name": "React Native",
+      "color": "#61dafb"
+    },
+    {
+      "name": "Expo",
+      "color": "#0b0b0c"
+    },
     {
       "name": "JavaScript",
       "color": "#f1e05a"
@@ -54,22 +63,13 @@
     {
       "name": "Python",
       "color": "#3572a5"
-    },
-    {
-      "name": "Luau",
-      "color": "#00a2ff"
     }
   ],
   "facts": [
     {
-      "value": 22,
+      "value": 13,
       "suffix": "",
-      "label": "public repos"
-    },
-    {
-      "value": 4,
-      "suffix": "y",
-      "label": "shipping since 2022"
+      "label": "react native + expo projects"
     },
     {
       "value": 5,
@@ -79,53 +79,334 @@
     {
       "value": 10,
       "suffix": "K+",
-      "label": "downloads on fakeLive"
+      "label": "downloads on virtual live"
+    },
+    {
+      "value": 4,
+      "suffix": "y",
+      "label": "shipping since 2022"
+    }
+  ],
+  "pillars": [
+    {
+      "key": "apps",
+      "count": "13",
+      "unit": "react native projects",
+      "text": "android apps in react native + expo, from notes and photo vaults to a meetups platform. five of them shipped to google play.",
+      "examples": [
+        "Metz",
+        "Metz Host",
+        "Virtual Live",
+        "NetBook",
+        "Private Photos",
+        "TicAI",
+        "Poster"
+      ],
+      "stack": [
+        "React Native",
+        "Expo",
+        "EAS Build",
+        "SQLite"
+      ]
+    },
+    {
+      "key": "web",
+      "count": "34",
+      "unit": "routes in the metz web app",
+      "text": "flask backends and web apps, a json api for my apps, live updates over websockets, and this site in three.js.",
+      "examples": [
+        "Metz web",
+        "Metz API",
+        "this portfolio",
+        "first sites (2022)"
+      ],
+      "stack": [
+        "Flask",
+        "Jinja",
+        "PostgreSQL",
+        "three.js"
+      ]
+    },
+    {
+      "key": "games",
+      "count": "2",
+      "unit": "games in luau",
+      "text": "pet games with eggs, rebirths, upgrade trees, leaderboards and odds that go into the billions.",
+      "examples": [
+        "Roll Pets RNG",
+        "Pet Park"
+      ],
+      "stack": [
+        "Luau",
+        "Rojo",
+        "Aftman"
+      ]
+    },
+    {
+      "key": "programs",
+      "count": "1",
+      "unit": "windows .exe, built by ci",
+      "text": "desktop tools in python. PhotoClicker finds a picture on your screen and clicks it, packaged as an .exe on every push.",
+      "examples": [
+        "PhotoClicker"
+      ],
+      "stack": [
+        "Python",
+        "OpenCV",
+        "Tkinter",
+        "PyInstaller"
+      ]
+    }
+  ],
+  "metz": {
+    "tagline": "find, create and join meetups around you.",
+    "intro": "my biggest project. it started in 2023 as GetTogetherGo, my first expo app. after five failed apps on the same idea i came back with metz, and now it's an android app, a host app and a web app on one codebase. i'm still building it.",
+    "status": "still building · next stop: google play",
+    "repo": "https://github.com/zqh7y/MetzV2",
+    "eras": [
+      {
+        "year": "2023",
+        "name": "GetTogetherGo",
+        "note": "the first try",
+        "tag": "expo sdk 48",
+        "detail": "a map of meetups, chat and local accounts"
+      },
+      {
+        "year": "2023",
+        "name": "GTG v1 + MeetingsApp",
+        "note": "more tries",
+        "tag": "sqlite",
+        "detail": "create and find meetings, groups, chat"
+      },
+      {
+        "year": "2024",
+        "name": "Metz",
+        "note": "the comeback",
+        "tag": "expo sdk 51",
+        "detail": "a night-mode map, live location, a create flow"
+      },
+      {
+        "year": "2026",
+        "name": "Metz V2",
+        "note": "the real one",
+        "tag": "expo sdk 54",
+        "detail": "react native app on a flask api with postgres, plus the web app"
+      },
+      {
+        "year": "2026",
+        "name": "Metz Host",
+        "note": "for organisers",
+        "tag": "same codebase",
+        "detail": "post it, send the link, see who's coming"
+      }
+    ],
+    "features": [
+      {
+        "tag": "map",
+        "title": "map-first home",
+        "text": "the whole screen is a map with meetups as pins, and a sheet you drag between peek, half and full."
+      },
+      {
+        "tag": "privacy",
+        "title": "link-only meetings",
+        "text": "private meetings stay off every list and open only from an unguessable link. guests join with a first name."
+      },
+      {
+        "tag": "threshold",
+        "title": "only happens if enough people join",
+        "text": "set a minimum and a deadline. the meeting goes open, gathering, then confirmed, or the organiser decides."
+      },
+      {
+        "tag": "create",
+        "title": "two-path create wizard",
+        "text": "\"something with friends\" stays private and quick. \"open to everyone\" goes on the map."
+      },
+      {
+        "tag": "trust",
+        "title": "reliability you earn",
+        "text": "newcomer, regular, reliable: you level up by actually turning up, not by posting."
+      },
+      {
+        "tag": "moderation",
+        "title": "trust & moderation",
+        "text": "a review queue for new organisers, reports, blocks, bans and admin dashboards."
+      },
+      {
+        "tag": "i18n",
+        "title": "7 languages",
+        "text": "english, hebrew, arabic, russian, spanish, french and german. hebrew and arabic flip to right-to-left."
+      },
+      {
+        "tag": "security",
+        "title": "encrypted data",
+        "text": "every database row is stored encrypted, with csrf protection, rate limits and a content security policy on the web."
+      }
+    ],
+    "numbers": [
+      {
+        "value": "26",
+        "label": "app screens"
+      },
+      {
+        "value": "63",
+        "label": "api routes"
+      },
+      {
+        "value": "7",
+        "label": "languages"
+      },
+      {
+        "value": "2",
+        "label": "apps, one codebase"
+      }
+    ],
+    "stack": [
+      "React Native 0.81",
+      "Expo SDK 54",
+      "EAS Build",
+      "Flask",
+      "PostgreSQL",
+      "Firebase Auth",
+      "Leaflet",
+      "MapLibre",
+      "WebSockets",
+      "Render"
+    ]
+  },
+  "apps": [
+    {
+      "name": "Virtual Live",
+      "store": "Virtual Live: Famous Fake Live",
+      "repo_name": "fakeLive",
+      "icon": "img/apps/virtuallive.webp",
+      "year": "2024",
+      "badge": "10K+ downloads",
+      "one_liner": "go live without going live.",
+      "text": "your real camera, dressed up as a viral livestream: a verified badge, a viewer count you pick that drifts up and down, and fake comments rolling in every second and a half.",
+      "features": [
+        "front/back camera flip",
+        "drifting viewer count",
+        "procedural fake chat"
+      ],
+      "stack": [
+        "Expo",
+        "expo-camera",
+        "AsyncStorage"
+      ],
+      "repo": "https://github.com/zqh7y/fakeLive"
+    },
+    {
+      "name": "NetBook",
+      "store": "NetBook",
+      "repo_name": "NetBook",
+      "icon": "img/apps/netbook.webp",
+      "year": "2023",
+      "badge": "my first on google play",
+      "one_liner": "notes in folders.",
+      "text": "a minimal offline notebook: folders, notes up to 10,000 characters, a photo on any note and five custom fonts.",
+      "features": [
+        "folders and notes",
+        "photo on any note",
+        "works offline"
+      ],
+      "stack": [
+        "Expo",
+        "AsyncStorage",
+        "expo-image-picker"
+      ],
+      "repo": "https://github.com/zqh7y/NetBook"
+    },
+    {
+      "name": "Poster",
+      "store": "Poster: Save & Publish Images",
+      "repo_name": "Poster",
+      "icon": "img/apps/poster.webp",
+      "year": "2023",
+      "badge": "",
+      "one_liner": "save & publish images.",
+      "text": "a pinterest-style board: post your art, browse a shuffled two-column feed, search it and save any image to your gallery. profiles, bios and a word filter for moderation.",
+      "features": [
+        "shuffled discovery feed",
+        "save to gallery",
+        "word-filter moderation"
+      ],
+      "stack": [
+        "Expo",
+        "expo-sqlite",
+        "expo-media-library"
+      ],
+      "repo": "https://github.com/zqh7y/Poster"
+    },
+    {
+      "name": "Private Photos",
+      "store": "Private Photos: Secure Photos",
+      "repo_name": "PrivatePhotos",
+      "icon": "img/apps/privatephotos.webp",
+      "year": "2024",
+      "badge": "",
+      "one_liner": "a locked photo vault.",
+      "text": "a passcode-locked vault: pull photos from your gallery into a private grid and export them back when you want. no accounts, nothing leaves the phone.",
+      "features": [
+        "passcode lock",
+        "multi-select import",
+        "on-device only"
+      ],
+      "stack": [
+        "Expo",
+        "expo-media-library",
+        "React Context"
+      ],
+      "repo": "https://github.com/zqh7y/PrivatePhotos"
+    },
+    {
+      "name": "TicAI",
+      "store": "TicAI",
+      "repo_name": "TicAI",
+      "icon": "img/apps/ticai.webp",
+      "year": "2024",
+      "badge": "",
+      "one_liner": "ai chat with answer modes.",
+      "text": "pick the kind of answer you want, like short, detailed, random facts or friendly, then chat. it keeps the conversation context and has a built-in rate limit.",
+      "features": [
+        "selectable answer modes",
+        "conversation context",
+        "rate-limit timer"
+      ],
+      "stack": [
+        "Expo",
+        "React Navigation",
+        "AsyncStorage"
+      ],
+      "repo": "https://github.com/zqh7y/TicAI"
+    }
+  ],
+  "next_app": {
+    "name": "WikiWonder",
+    "icon": "img/apps/wikiwonder.webp",
+    "text": "a modern wikipedia app"
+  },
+  "also_built": [
+    {
+      "name": "AIDocx",
+      "text": "an AI document editor, built in about ten days",
+      "repo": "https://github.com/zqh7y/AIDocx"
+    },
+    {
+      "name": "DailyRoutine",
+      "text": "a habit tracker with animated progress rings",
+      "repo": "https://github.com/zqh7y/DailyRoutine"
+    },
+    {
+      "name": "BuyList",
+      "text": "a grocery list with a searchable food catalogue",
+      "repo": "https://github.com/zqh7y/BuyList"
     }
   ],
   "featured": [
     {
-      "id": "metz",
-      "title": "Metz V2",
-      "kind": "web + android app",
-      "year": "2026",
-      "repo": "https://github.com/zqh7y/MetzV2",
-      "image": "img/metz.webp",
-      "image_fit": "contain",
-      "tint": "#0e9384",
-      "stack": [
-        "Flask",
-        "Expo",
-        "React Native",
-        "Firebase",
-        "MySQL",
-        "WebSockets",
-        "MapLibre"
-      ],
-      "blurb": "Find, create and join local meetups. The home screen is a full-screen map with clustered pins. There's a 'For You' shelf, live attendee counts over a hand-rolled WebSocket server, trust & moderation and an admin dashboard. The native Android app runs on the same backend logic.",
-      "visual": "image"
-    },
-    {
-      "id": "fakelive",
-      "title": "fakeLive",
-      "kind": "android app · \"virtual live\"",
-      "year": "2024",
-      "repo": "https://github.com/zqh7y/fakeLive",
-      "visual": "live",
-      "badge": "10K+ downloads",
-      "tint": "#ff3b5c",
-      "stack": [
-        "Expo",
-        "React Native",
-        "expo-camera",
-        "EAS"
-      ],
-      "blurb": "Go live without going live. Pick a username and a viewer count, and the app opens your camera with a live badge, a viewer count that drifts up and down, and fake comments rolling in. On Google Play it was called Virtual Live, and it passed 10K downloads.",
-      "screens": []
-    },
-    {
       "id": "rollpets",
       "title": "Roll Pets RNG",
-      "kind": "roblox game",
+      "kind": "game · luau",
       "year": "2026",
       "repo": "https://github.com/zqh7y/RollPetsRNG",
       "image": "img/rollpets.webp",
@@ -136,13 +417,13 @@
         "Roblox",
         "Rojo"
       ],
-      "blurb": "A pet RNG game: 100 animals with odds from 1 in 2 to 1 in 660Qn. The server rolls first, the enemies are alive, and Huge & Titanic pulls get a bush cutscene. You climb a global Most Rolls leaderboard.",
+      "blurb": "A pet RNG game: 100 animals with odds from 1 in 2 to 1 in 660Qn. The server rolls first, the enemies are alive, and Huge and Titanic pulls get a bush cutscene. You climb a global Most Rolls leaderboard.",
       "visual": "image"
     },
     {
       "id": "petpark",
       "title": "Pet Park",
-      "kind": "roblox simulator",
+      "kind": "game · luau",
       "year": "2026",
       "repo": "https://github.com/zqh7y/CoinsHatcher",
       "image": "img/petpark.webp",
@@ -153,13 +434,13 @@
         "Roblox",
         "Rojo"
       ],
-      "blurb": "Break coins, hatch 11 themed eggs and rebirth into new areas, each with its own weather. There's a zoomable upgrade tree, a merchant that restocks every 10 minutes, and Huge pets at 1 in 6M.",
+      "blurb": "Break coins, hatch 11 themed eggs and rebirth into new areas, each with its own weather. There's a zoomable upgrade tree, a merchant that restocks every 10 minutes, and Mythical pets at about 1 in 6M.",
       "visual": "image"
     },
     {
       "id": "photoclicker",
       "title": "PhotoClicker",
-      "kind": "windows tool",
+      "kind": "program · python",
       "year": "2026",
       "repo": "https://github.com/zqh7y/PhotoClicker",
       "image": "img/photoclicker.webp",
@@ -168,72 +449,39 @@
       "stack": [
         "Python",
         "OpenCV",
-        "NumPy",
+        "PyAutoGUI",
+        "Tkinter",
         "GitHub Actions"
       ],
-      "blurb": "An auto clicker that finds a picture on your screen, in any colour, and clicks it. It matches by shape and glides the mouse so games notice it. GitHub Actions builds and tests the .exe on every push.",
+      "blurb": "A Windows program that finds a picture on your screen, in any colour, and clicks it. It matches by shape and glides the mouse so games notice it. GitHub Actions builds and tests the .exe on every push.",
       "visual": "image"
-    },
-    {
-      "id": "googleplay",
-      "title": "5 apps shipped to Google Play",
-      "kind": "android apps",
-      "year": "2024",
-      "repo": "https://github.com/zqh7y?tab=repositories",
-      "visual": "shelf",
-      "tint": "#0e9384",
-      "stack": [
-        "Expo",
-        "React Native",
-        "Firebase",
-        "EAS"
-      ],
-      "apps": [
-        {
-          "name": "NetBook",
-          "icon": "img/apps/netbook.webp"
-        },
-        {
-          "name": "Private Photos",
-          "icon": "img/apps/privatephotos.webp"
-        },
-        {
-          "name": "TicAI",
-          "icon": "img/apps/ticai.webp"
-        },
-        {
-          "name": "Virtual Live",
-          "icon": "img/apps/virtuallive.webp"
-        },
-        {
-          "name": "Poster",
-          "icon": "img/apps/poster.webp"
-        },
-        {
-          "name": "WikiWonder",
-          "icon": "img/apps/wikiwonder.webp",
-          "status": "testing"
-        }
-      ],
-      "blurb": "NetBook (notes in folders, my first), Private Photos (a locked photo vault), TicAI (an AI chat app), Virtual Live, a.k.a. fakeLive (10K+ downloads), and Poster (save & publish images). All Expo + React Native. Next up: WikiWonder, a modern Wikipedia app, in internal testing.",
-      "link_label": "see all repos"
     }
   ],
   "lore": [
     {
       "date": "sep 2022",
       "title": "hello world",
-      "text": "joined github. first ever project: one html + css page."
+      "text": "joined github. first ever project: one html + css page on github pages."
     },
     {
       "date": "dec 2022",
       "title": "rock paper scissors",
-      "text": "first real javascript game, shipped on github pages."
+      "text": "my first javascript game, also on github pages."
+    },
+    {
+      "date": "apr 2023",
+      "title": "GetTogetherGo",
+      "text": "my first expo app, and the start of the metz idea: a map of meetups, chat and local accounts."
     },
     {
       "date": "may 2023",
-      "title": "get together go",
-      "text": "GTG v1, the very first version of what became Metz."
+      "title": "more tries",
+      "text": "GTG v1 and MeetingsApp: the same idea again, with sqlite and a find-a-meeting screen."
+    },
+    {
+      "date": "jun 2023",
+      "title": "NetBook",
+      "text": "a notes app with folders. it became my first app on google play."
     },
     {
       "date": "aug 2023",
@@ -241,34 +489,34 @@
       "text": "built my mom a portfolio site for her birthday."
     },
     {
-      "date": "jun 2024",
-      "title": "the expo era",
-      "text": "NetBook, Virtual Live (fakeLive), Poster and Private Photos ship to Google Play. fakeLive goes past 10K downloads. some projects failed too, and that's how i learned."
+      "date": "2024",
+      "title": "the google play era",
+      "text": "NetBook, Poster, Virtual Live, Private Photos and TicAI all ship to google play. Virtual Live passes 10K downloads."
     },
     {
       "date": "aug 2024",
       "title": "TicAI: I MADE IT",
-      "text": "\"gonna take this one really serious, till it works.\" 22.06.24 to 20.08.24. an AI chat app i refused to give up on. it shipped to Google Play too."
+      "text": "\"gonna take this one really serious, till it works.\" 22.06.24 to 20.08.24. an AI chat app i refused to give up on."
     },
     {
       "date": "oct 2024",
-      "title": "Metz + AIDocx",
-      "text": "maps, AI and react native. plus a google docs clone with AI baked in."
+      "title": "Metz",
+      "text": "the comeback after five failed apps on the same idea: a night-mode map, live location and a create flow."
     },
     {
       "date": "jun 2026",
       "title": "Metz V2",
-      "text": "full-stack for real: flask, firebase, mysql, websockets, on web + android."
+      "text": "started as a flask web app, grew into a react native app on a flask api with postgres. full-stack for real."
     },
     {
       "date": "sep 2026",
-      "title": "the roblox arc",
-      "text": "Roll Pets RNG and Pet Park, written in luau with rojo."
+      "title": "Metz Host + games",
+      "text": "split Metz Host out of the same codebase, and made two games in luau."
     },
     {
       "date": "oct 2026",
       "title": "now",
-      "text": "PhotoClicker, WikiWonder (a modern wikipedia app, in testing), this website, and whatever comes next."
+      "text": "metz heading for google play, PhotoClicker, WikiWonder and this website."
     }
   ],
   "qa": [
@@ -282,19 +530,31 @@
     },
     {
       "q": "what do you build?",
-      "a": "android apps with expo + flask, roblox games in luau, and python tools for windows."
+      "a": "apps, web, games and programs. mostly react native + expo apps with flask backends."
     },
     {
-      "q": "school or work?",
-      "a": "high school. everything here is built for fun."
+      "q": "biggest project?",
+      "a": "metz. it started as GetTogetherGo in 2023 and i'm still building it, now as metz + metz host."
+    },
+    {
+      "q": "apps on google play?",
+      "a": "five shipped: NetBook, Private Photos, TicAI, Virtual Live (fakeLive) and Poster. Virtual Live passed 10K downloads."
     },
     {
       "q": "a project you refused to quit?",
       "a": "TicAI. started it 22.06.24, finally made it work 20.08.24."
     },
     {
-      "q": "apps on google play?",
-      "a": "five shipped: NetBook, Private Photos, TicAI, Virtual Live (fakeLive) and Poster. fakeLive passed 10K downloads. WikiWonder is in testing."
+      "q": "favourite stack?",
+      "a": "react native + expo for apps, flask for backends, three.js when i want things to move."
+    },
+    {
+      "q": "languages?",
+      "a": "javascript, python, luau, sql, html, css and scss. javascript is home."
+    },
+    {
+      "q": "school or work?",
+      "a": "high school. everything here is built for fun."
     }
   ],
   "photos": [
@@ -314,43 +574,136 @@
       "alt": "zzqxck taking a mirror selfie with a phone"
     }
   ],
-  "stack": [
+  "languages": [
     {
-      "group": "languages",
-      "items": [
-        "JavaScript",
-        "Python",
-        "Luau",
-        "HTML",
-        "CSS",
-        "SCSS"
-      ]
+      "name": "JavaScript",
+      "repos": 16,
+      "color": "#f1e05a",
+      "where": "every app, the metz web app, this site"
     },
     {
-      "group": "mobile",
+      "name": "Python",
+      "repos": 4,
+      "color": "#3572a5",
+      "where": "flask backends, PhotoClicker, tooling"
+    },
+    {
+      "name": "Luau",
+      "repos": 2,
+      "color": "#00a2ff",
+      "where": "the games"
+    },
+    {
+      "name": "HTML",
+      "repos": 6,
+      "color": "#e34c26",
+      "where": "first sites, jinja templates"
+    },
+    {
+      "name": "CSS",
+      "repos": 4,
+      "color": "#663399",
+      "where": "the metz web app, this site"
+    },
+    {
+      "name": "SQL",
+      "repos": 5,
+      "color": "#e38c00",
+      "where": "sqlite in apps, mysql, postgres"
+    },
+    {
+      "name": "SCSS",
+      "repos": 1,
+      "color": "#c6538c",
+      "where": "a birthday site for my mom"
+    },
+    {
+      "name": "YAML",
+      "repos": 1,
+      "color": "#cb171e",
+      "where": "github actions ci"
+    }
+  ],
+  "rn": {
+    "title": "react native + expo",
+    "points": [
+      {
+        "value": "13",
+        "label": "projects"
+      },
+      {
+        "value": "48 → 54",
+        "label": "expo sdk"
+      },
+      {
+        "value": "0.71 → 0.81",
+        "label": "react native"
+      },
+      {
+        "value": "5",
+        "label": "shipped to google play"
+      }
+    ]
+  },
+  "stack": [
+    {
+      "group": "apps",
       "items": [
         "React Native",
         "Expo",
-        "Android",
-        "EAS"
+        "EAS Build",
+        "React Navigation",
+        "AsyncStorage",
+        "expo-sqlite",
+        "expo-camera",
+        "expo-location",
+        "expo-notifications",
+        "Reanimated",
+        "react-native-maps",
+        "react-native-svg"
       ]
     },
     {
       "group": "backend",
       "items": [
         "Flask",
-        "Firebase",
+        "Jinja",
+        "Firebase Auth",
+        "PostgreSQL",
         "MySQL",
+        "SQLite",
+        "Express",
         "WebSockets",
-        "REST"
+        "Render"
+      ]
+    },
+    {
+      "group": "web",
+      "items": [
+        "three.js",
+        "GSAP",
+        "Leaflet",
+        "MapLibre GL",
+        "SCSS",
+        "GitHub Pages"
       ]
     },
     {
       "group": "games",
       "items": [
-        "Roblox Studio",
+        "Luau",
         "Rojo",
-        "Luau"
+        "Aftman"
+      ]
+    },
+    {
+      "group": "programs",
+      "items": [
+        "OpenCV",
+        "NumPy",
+        "PyAutoGUI",
+        "Tkinter",
+        "PyInstaller"
       ]
     },
     {
@@ -358,14 +711,47 @@
       "items": [
         "Git",
         "GitHub Actions",
-        "OpenCV",
-        "MapLibre",
-        "Three.js"
+        "pytest",
+        "OpenAI API",
+        "Claude Code"
       ]
     }
   ],
+  "sphere": [
+    "React Native",
+    "Expo",
+    "JavaScript",
+    "Python",
+    "Flask",
+    "PostgreSQL",
+    "Firebase",
+    "SQLite",
+    "Luau",
+    "HTML",
+    "CSS",
+    "SQL",
+    "three.js",
+    "GSAP",
+    "Leaflet",
+    "MapLibre",
+    "EAS",
+    "Reanimated",
+    "OpenCV",
+    "Rojo",
+    "WebSockets",
+    "Render",
+    "GitHub Actions",
+    "Jinja",
+    "SCSS",
+    "Tkinter",
+    "Express",
+    "MySQL"
+  ],
   "hidden_repos": [
-    "roblox-automation"
+    "roblox-automation",
+    "JustAriel.github.io",
+    "RPSgameJustAriel.github.io",
+    "Alenas_Portfolio"
   ],
   "play_store": {
     "TicAI": "",
@@ -378,6 +764,6 @@
     "BuyList": "shopping list app. past me was not a fan.",
     "Poster": "save & publish images app, shipped to google play. taught me how not to store data in firebase.",
     "Portfolio": "this website. python + javascript + three.js.",
-    "fakeLive": "fake livestream prank app, \"Virtual Live\" on the store. 10K+ downloads on google play."
+    "fakeLive": "fake livestream prank app. it was \"Virtual Live\" on google play and passed 10K downloads."
   }
 }
