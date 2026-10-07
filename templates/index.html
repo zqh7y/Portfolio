@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ p.name }} · {{ p.role }}</title>
+  <meta name="description" content="{{ p.name }}: {{ p.role }} from {{ p.location }}. Android apps, Roblox games and Python tools.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="{{ p.name }} · portfolio">
+  <meta property="og:description" content="{{ p.tagline }}">
+  <meta property="og:image" content="{{ url_for('static', filename='img/og.jpg', _external=True) }}">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <script>document.documentElement.classList.replace('no-js', 'js')</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Geist+Mono:wght@400;500&family=Geist:wght@300..700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/lenis.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "{{ url_for('static', filename='vendor/three/three.module.min.js') }}",
+        "three/addons/": "{{ url_for('static', filename='vendor/three/addons/') }}"
+      }
+    }
+  </script>
+  <script defer src="{{ url_for('static', filename='vendor/gsap.min.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='vendor/ScrollTrigger.min.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='vendor/lenis.min.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+
+<body>
+  <!-- loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__row">
+      <span>{{ p.name }}</span>
+      <span>portfolio ©{{ year }}</span>
+    </div>
+    <div class="loader__count"><span id="loader-count">0</span><sup>%</sup></div>
+    <div class="loader__row">
+      <span>loading vibes</span>
+      <span class="loader__bar"><i id="loader-bar"></i></span>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__ring"><span class="cursor__label"></span></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <!-- nav -->
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#top" data-magnetic data-cursor="top">{{ p.name }}<sup>©</sup></a>
+    <nav class="nav__links" aria-label="sections">
+      <a href="#work" data-scramble>work</a>
+      <a href="#lore" data-scramble>lore</a>
+      <a href="#qa" data-scramble>q&amp;a</a>
+      <a href="#stack" data-scramble>stack</a>
+      <a href="#lab" data-scramble>lab</a>
+      <a href="#repos" data-scramble>repos</a>
+    </nav>
+    <div class="nav__meta">
+      <span class="nav__clock mono"><span data-clock="{{ p.timezone }}">--:--</span> · {{ p.location.split(',')[0] | lower }}</span>
+      {% if p.available %}
+      <a class="pill pill--live" href="#contact" data-magnetic><i></i>available</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ───────────── hero ───────────── -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero__fallback" aria-hidden="true"></div>
+
+      <div class="hero__top">
+        <div>
+          <p class="label"><span>( 001 )</span> portfolio · {{ year }}</p>
+          <span class="sticker-hint mono">↘ drag the stickers · poke the blob</span>
+        </div>
+        <p class="hero__tagline serif">{{ p.tagline }}</p>
+      </div>
+
+      <div class="stickers" aria-hidden="true">
+        <span class="sticker sticker--lime" style="--x:10%;--y:30%;--r:-12deg">android ✦</span>
+        <span class="sticker sticker--ink" style="--x:74%;--y:36%;--r:8deg">roblox dev</span>
+        <span class="sticker sticker--line" style="--x:68%;--y:58%;--r:-6deg">python + js</span>
+        <span class="sticker sticker--chrome" style="--x:16%;--y:58%;--r:10deg">since {{ p.since }}</span>
+      </div>
+
+      <div class="hero__bottom">
+        <div class="hero__aside">
+          <a class="badge-spin" href="#about" data-cursor="scroll" aria-label="scroll down">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+              <text><textPath href="#circle">scroll to explore ✦ scroll to explore ✦ </textPath></text>
+            </svg>
+            <span>↓</span>
+          </a>
+          <p class="hero__intro">{{ p.role }}.<br>{{ p.status }}.</p>
+        </div>
+        <h1 class="hero__name" aria-label="{{ p.name }}"><span data-split="chars">{{ p.name }}</span></h1>
+      </div>
+    </section>
+
+    <!-- marquee -->
+    <div class="marquees" aria-hidden="true">
+      <div class="marquee marquee--ink" data-marquee="1">
+        <div class="marquee__track">
+          {% for _ in range(2) %}<span class="marquee__group">{% for m in p.marquee %}<span>{{ m }}</span><i>✦</i>{% endfor %}</span>{% endfor %}
+        </div>
+      </div>
+      <div class="marquee marquee--lime" data-marquee="-1">
+        <div class="marquee__track">
+          {% for _ in range(2) %}<span class="marquee__group">{% for m in p.marquee | reverse %}<span>{{ m }}</span><i>✺</i>{% endfor %}</span>{% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────── about ───────────── -->
+    <section class="section about" id="about">
+      <p class="label"><span>( 002 )</span> the 411</p>
+      <p class="about__text" data-reveal="scrub-words">{{ p.about }}</p>
+
+      <div class="bento">
+        <article class="bento__card bento__card--avatar" data-tilt>
+          <img src="{{ p.avatar }}" alt="{{ p.name }} avatar" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+          <div class="bento__avatar-meta">
+            <span class="mono">github/{{ p.github_user }}</span>
+            <span class="pill pill--live"><i></i>online-ish</span>
+          </div>
+        </article>
+        {% for f in p.facts %}
+        <article class="bento__card bento__card--fact" data-tilt>
+          <span class="bento__num"><span data-count="{{ f.value }}">0</span>{{ f.suffix }}</span>
+          <span class="mono">{{ f.label }}</span>
+        </article>
+        {% endfor %}
+        <article class="bento__card bento__card--now">
+          <span class="mono">currently</span>
+          <p>building <em class="serif">roblox games</em>, polishing <em class="serif">Metz</em> and making this site do backflips.</p>
+        </article>
+        <article class="bento__card bento__card--where">
+          <span class="mono">based in</span>
+          <p>{{ p.location }}</p>
+          <span class="mono"><span data-clock="{{ p.timezone }}" data-seconds>--:--:--</span> local</span>
+        </article>
+        <article class="bento__card bento__card--daily">
+          <span class="mono">daily drivers</span>
+          <ul>
+            {% for d in p.daily %}<li><i style="background: {{ d.color }}"></i>{{ d.name }}</li>{% endfor %}
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── work ───────────── -->
+    <section class="work" id="work">
+      <div class="section work__head">
+        <p class="label"><span>( 003 )</span> selected work</p>
+        <h2 class="h2"><span data-split="words">stuff i actually</span> <em class="serif" data-split="words">shipped.</em></h2>
+      </div>
+      <div class="work__pin">
+        <div class="work__track" id="work-track">
+          {% for w in p.featured %}
+          <article class="project" style="--tint: {{ w.tint }}">
+            <a class="project__card" href="{{ w.repo }}" target="_blank" rel="noopener" data-tilt data-cursor="open ↗">
+              <div class="project__visual project__visual--{{ w.image_fit or w.visual }}">
+                {% if w.visual == 'live' %}
+                <div class="live-mock" aria-hidden="true">
+                  <div class="live-mock__top"><span class="live-mock__pill">live</span><span class="live-mock__viewers">● 12.4K</span></div>
+                  <div class="live-mock__chat"><ul>
+                    {% for _ in range(2) %}
+                    <li><b>john2453</b> first!!</li>
+                    <li><b>pro gamer</b> W stream</li>
+                    <li><b>alice123</b> how is this real 😭</li>
+                    <li><b>nuh uhhhh</b> nuh uhhhh</li>
+                    <li><b>🎀🎀🎀</b> 🔥🔥🔥</li>
+                    <li><b>noah357</b> say hi to chat</li>
+                    {% endfor %}
+                  </ul></div>
+                  <div class="live-mock__hearts"><i>♥</i><i>♥</i><i>♥</i><i>♥</i></div>
+                </div>
+                {% elif w.visual == 'shelf' %}
+                <div class="shelf" aria-hidden="true">
+                  {% for app in w.apps %}<span class="shelf__app" style="--i: {{ loop.index0 - 2 }}; --c: {{ app.color }}"><b>{{ app.name[0] }}</b><small>{{ app.name }}</small></span>{% endfor %}
+                </div>
+                {% elif w.image %}
+                <img src="{{ url_for('static', filename=w.image) }}" alt="{{ w.title }}" loading="lazy" draggable="false">
+                {% endif %}
+                {% if w.badge %}<span class="project__badge">{{ w.badge }}</span>{% endif %}
+                <span class="project__glare" aria-hidden="true"></span>
+              </div>
+              <div class="project__info">
+                <div class="project__row mono">
+                  <span>{{ '%02d' % loop.index }} / {{ '%02d' % p.featured | length }}</span>
+                  <span>{{ w.kind }}</span>
+                  <span>{{ w.year }}</span>
+                </div>
+                <h3 class="project__title">{{ w.title }}</h3>
+                <p class="project__blurb">{{ w.blurb }}</p>
+                <ul class="chips">
+                  {% for s in w.stack %}<li>{{ s }}</li>{% endfor %}
+                </ul>
+                <span class="project__link mono">view repo ↗</span>
+              </div>
+            </a>
+          </article>
+          {% endfor %}
+          <article class="project project--more">
+            <a class="project__card project__card--more" href="#repos" data-cursor="dig in">
+              <span class="mono">( and more )</span>
+              <span class="project__more-title">the whole<br><em class="serif">archive</em> →</span>
+              <span class="mono">every public repo, live from github</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── lore ───────────── -->
+    <section class="section lore" id="lore">
+      <p class="label"><span>( 004 )</span> the lore</p>
+      <h2 class="h2"><span data-split="words">how it started,</span> <em class="serif" data-split="words">how it's going.</em></h2>
+      <div class="timeline">
+        <span class="timeline__line" aria-hidden="true"><i id="timeline-fill"></i></span>
+        <ol class="timeline__list">
+        {% for l in p.lore %}
+        <li class="timeline__item">
+          <span class="timeline__dot" aria-hidden="true"></span>
+          <div class="timeline__card">
+            <span class="mono timeline__date">{{ l.date }}</span>
+            <h3>{{ l.title }}</h3>
+            <p>{{ l.text }}</p>
+          </div>
+        </li>
+        {% endfor %}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────────── q&a ───────────── -->
+    <section class="section qa" id="qa">
+      <p class="label"><span>( 005 )</span> rapid fire</p>
+      <div class="qa__head">
+        <h2 class="h2"><span data-split="words">get to</span> <em class="serif" data-split="words">know me.</em></h2>
+        <p class="mono muted">hover or tap a card to flip it ↻</p>
+      </div>
+      <div class="qa__grid">
+        {% for item in p.qa %}
+        <button class="qa-card" type="button" aria-pressed="false">
+          <span class="qa-card__inner">
+            <span class="qa-card__face qa-card__front">
+              <span class="mono">q.{{ '%02d' % loop.index }}</span>
+              <span class="qa-card__q">{{ item.q }}</span>
+              <span class="mono qa-card__hint">flip ↻</span>
+            </span>
+            <span class="qa-card__face qa-card__back">
+              <span class="mono">a.{{ '%02d' % loop.index }}</span>
+              <span class="qa-card__a">{{ item.a }}</span>
+            </span>
+          </span>
+        </button>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ───────────── stack ───────────── -->
+    <section class="section stack" id="stack">
+      <p class="label"><span>( 006 )</span> the stack</p>
+      <div class="stack__grid">
+        <div class="stack__sphere" id="tag-sphere" data-cursor="drag" aria-hidden="true">
+          {% for g in p.stack %}{% for item in g["items"] %}<span class="tag-sphere__item">{{ item }}</span>{% endfor %}{% endfor %}
+        </div>
+        <div class="stack__list">
+          <h2 class="h2"><span data-split="words">tools i</span> <em class="serif" data-split="words">vibe</em> <span data-split="words">with.</span></h2>
+          {% for g in p.stack %}
+          <div class="stack__group">
+            <span class="mono">{{ g.group }}</span>
+            <ul class="chips chips--lg">
+              {% for item in g["items"] %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── lab ───────────── -->
+    <section class="section lab" id="lab">
+      <p class="label"><span>( 007 )</span> the lab</p>
+      <div class="lab__head">
+        <h2 class="h2"><span data-split="words">hatch an</span> <em class="serif" data-split="words">egg.</em></h2>
+        <p class="lab__sub">the python server rolls first, the browser just animates it. same as in roll pets rng. good luck.</p>
+      </div>
+      <div class="lab__grid">
+        <div class="lab__stage">
+          <canvas id="egg-canvas" data-cursor="hatch" aria-label="3D egg, click to hatch"></canvas>
+          <div class="lab__result" id="hatch-result" aria-live="polite">
+            <span class="rarity mono" id="hatch-rarity">ready</span>
+            <strong id="hatch-name">press hatch</strong>
+            <span class="mono" id="hatch-chance">or hit E</span>
+            <span class="lab__tags" id="hatch-tags"></span>
+          </div>
+        </div>
+        <aside class="lab__panel">
+          <button class="btn btn--ink btn--xl" id="hatch-btn" data-magnetic type="button">
+            <span>hatch</span><kbd>E</kbd>
+          </button>
+          <div class="lab__stats">
+            <div><span class="mono">hatched</span><strong id="hatch-count">0</strong></div>
+            <div><span class="mono">best pull</span><strong id="hatch-best">—</strong></div>
+          </div>
+          <div class="odds">
+            <span class="mono">odds · per egg</span>
+            <ul id="odds-list"><li class="mono muted">loading odds…</li></ul>
+            <p class="mono muted">huge 1 in 100 · titanic 1 in 1K · shiny 1 in 50</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ───────────── repos ───────────── -->
+    <section class="section repos" id="repos">
+      <p class="label"><span>( 008 )</span> the archive</p>
+      <div class="repos__head">
+        <h2 class="h2"><span data-split="words">everything on</span> <em class="serif" data-split="words">github.</em></h2>
+        <p class="mono muted" id="repos-source">fetching…</p>
+      </div>
+      <div class="langbar" id="langbar" aria-label="languages"></div>
+      <div class="filters" id="repo-filters" role="tablist"></div>
+      <div class="repo-grid" id="repo-grid"></div>
+      <noscript><p><a href="{{ p.github }}">see all repos on github ↗</a></p></noscript>
+    </section>
+
+    <!-- ───────────── contact ───────────── -->
+    <section class="contact" id="contact">
+      <p class="label"><span>( 009 )</span> say hi</p>
+      <h2 class="contact__title">
+        <span class="line"><span data-split="chars">got an idea?</span></span>
+        <span class="line"><span data-split="chars">let's build</span></span>
+        <span class="line"><em class="serif" data-split="chars">something weird.</em></span>
+      </h2>
+      <div class="contact__actions">
+        <a class="btn btn--ink btn--xl" href="{{ p.github }}" target="_blank" rel="noopener" data-magnetic>github ↗</a>
+        {% if p.email %}
+        <button class="btn btn--line btn--xl" type="button" data-copy="{{ p.email }}" data-magnetic>
+          <span>{{ p.email }}</span>
+        </button>
+        {% endif %}
+        <a class="btn btn--line btn--xl" href="#top" data-magnetic>back to top ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">
+      {% for ch in p.name %}<span>{{ ch }}</span>{% endfor %}
+    </div>
+    <div class="footer__row mono">
+      <span>© {{ year }} {{ p.name }}</span>
+      <span>built with python + javascript + three.js</span>
+      <span><span data-clock="{{ p.timezone }}">--:--</span> in {{ p.location }}</span>
+    </div>
+  </footer>
+
+  <div class="toast mono" id="toast" role="status"></div>
+</body>
+</html>

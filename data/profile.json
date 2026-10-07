@@ -1,0 +1,337 @@
+{
+  "github_user": "zqh7y",
+  "name": "zzqxck",
+  "role": "full-stack android & roblox developer",
+  "tagline": "i build apps, games & weird little tools.",
+  "location": "Holon, IL",
+  "timezone": "Asia/Jerusalem",
+  "status": "high school · building for fun",
+  "available": true,
+  "since": 2022,
+  "github": "https://github.com/zqh7y",
+  "avatar": "https://avatars.githubusercontent.com/u/113249259?v=4",
+  "email": "",
+  "about": "i'm a high-school dev from holon who ships android apps, roblox games and python tools. i started vibe-coding in 2022 with one plain html page. now i have 5 apps on google play (one passed 10k downloads), full-stack apps with flask + expo, and roblox games with 100 pets and 1 in 964,817,253 odds.",
+  "marquee": [
+    "android",
+    "roblox",
+    "full-stack",
+    "python",
+    "luau",
+    "react native",
+    "flask",
+    "expo",
+    "firebase",
+    "three.js"
+  ],
+  "daily": [
+    {
+      "name": "JavaScript",
+      "color": "#f1e05a"
+    },
+    {
+      "name": "Python",
+      "color": "#3572a5"
+    },
+    {
+      "name": "Luau",
+      "color": "#00a2ff"
+    }
+  ],
+  "facts": [
+    {
+      "value": 22,
+      "suffix": "",
+      "label": "public repos"
+    },
+    {
+      "value": 4,
+      "suffix": "y",
+      "label": "shipping since 2022"
+    },
+    {
+      "value": 5,
+      "suffix": "",
+      "label": "apps on google play"
+    },
+    {
+      "value": 10,
+      "suffix": "K+",
+      "label": "downloads on fakeLive"
+    }
+  ],
+  "featured": [
+    {
+      "id": "metz",
+      "title": "Metz V2",
+      "kind": "web + android app",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/MetzV2",
+      "image": "img/metz.webp",
+      "image_fit": "contain",
+      "tint": "#0e9384",
+      "stack": [
+        "Flask",
+        "Expo",
+        "React Native",
+        "Firebase",
+        "MySQL",
+        "WebSockets",
+        "MapLibre"
+      ],
+      "blurb": "Find, create and join local meetups. The home screen is a full-screen map with clustered pins. There's a 'For You' shelf, live attendee counts over a hand-rolled WebSocket server, trust & moderation and an admin dashboard. The native Android app runs on the same backend logic.",
+      "visual": "image"
+    },
+    {
+      "id": "fakelive",
+      "title": "fakeLive",
+      "kind": "android app",
+      "year": "2024",
+      "repo": "https://github.com/zqh7y/fakeLive",
+      "visual": "live",
+      "badge": "10K+ downloads",
+      "tint": "#ff3b5c",
+      "stack": [
+        "Expo",
+        "React Native",
+        "expo-camera",
+        "EAS"
+      ],
+      "blurb": "Go live without going live. Pick a username and a viewer count, and the app opens your camera with a live badge, a viewer count that drifts up and down, and fake comments rolling in. It passed 10K downloads on Google Play."
+    },
+    {
+      "id": "rollpets",
+      "title": "Roll Pets RNG",
+      "kind": "roblox game",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/RollPetsRNG",
+      "image": "img/rollpets.webp",
+      "image_fit": "cover",
+      "tint": "#7c4dff",
+      "stack": [
+        "Luau",
+        "Roblox",
+        "Rojo"
+      ],
+      "blurb": "A pet RNG game: 100 animals with odds from 1 in 2 to 1 in 660Qn. The server rolls first, the enemies are alive, and Huge & Titanic pulls get a bush cutscene. You climb a global Most Rolls leaderboard.",
+      "visual": "image"
+    },
+    {
+      "id": "petpark",
+      "title": "Pet Park",
+      "kind": "roblox simulator",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/CoinsHatcher",
+      "image": "img/petpark.webp",
+      "image_fit": "cover",
+      "tint": "#ff4fb3",
+      "stack": [
+        "Luau",
+        "Roblox",
+        "Rojo"
+      ],
+      "blurb": "Break coins, hatch 11 themed eggs and rebirth into new areas, each with its own weather. There's a zoomable upgrade tree, a merchant that restocks every 10 minutes, and Huge pets at 1 in 6M.",
+      "visual": "image"
+    },
+    {
+      "id": "photoclicker",
+      "title": "PhotoClicker",
+      "kind": "windows tool",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/PhotoClicker",
+      "image": "img/photoclicker.webp",
+      "image_fit": "contain",
+      "tint": "#4f6bed",
+      "stack": [
+        "Python",
+        "OpenCV",
+        "NumPy",
+        "GitHub Actions"
+      ],
+      "blurb": "An auto clicker that finds a picture on your screen, in any colour, and clicks it. It matches by shape and glides the mouse so games notice it. GitHub Actions builds and tests the .exe on every push.",
+      "visual": "image"
+    },
+    {
+      "id": "googleplay",
+      "title": "5 apps on Google Play",
+      "kind": "android apps",
+      "year": "2024",
+      "repo": "https://github.com/zqh7y?tab=repositories",
+      "visual": "shelf",
+      "tint": "#0e9384",
+      "stack": [
+        "Expo",
+        "React Native",
+        "Firebase",
+        "EAS"
+      ],
+      "apps": [
+        {
+          "name": "TicAI",
+          "color": "#111111"
+        },
+        {
+          "name": "Poster",
+          "color": "#ff4fb3"
+        },
+        {
+          "name": "fakeLive",
+          "color": "#ff3b5c"
+        },
+        {
+          "name": "PrivatePhotos",
+          "color": "#4f6bed"
+        },
+        {
+          "name": "NetBook",
+          "color": "#0e9384"
+        }
+      ],
+      "blurb": "TicAI (an AI chat app), Poster (a posting app on Firebase), fakeLive, PrivatePhotos (a locked photo vault) and NetBook (notes in folders, my first one). All built with Expo and shipped to the Play Store."
+    }
+  ],
+  "lore": [
+    {
+      "date": "sep 2022",
+      "title": "hello world",
+      "text": "joined github. first ever project: one html + css page."
+    },
+    {
+      "date": "dec 2022",
+      "title": "rock paper scissors",
+      "text": "first real javascript game, shipped on github pages."
+    },
+    {
+      "date": "may 2023",
+      "title": "get together go",
+      "text": "GTG v1, the very first version of what became Metz."
+    },
+    {
+      "date": "aug 2023",
+      "title": "a gift in code",
+      "text": "built my mom a portfolio site for her birthday."
+    },
+    {
+      "date": "jun 2024",
+      "title": "the expo era",
+      "text": "NetBook, fakeLive, Poster and PrivatePhotos land on Google Play. fakeLive goes past 10K downloads. some projects failed too, and that's how i learned."
+    },
+    {
+      "date": "aug 2024",
+      "title": "TicAI: I MADE IT",
+      "text": "\"gonna take this one really serious, till it works.\" 22.06.24 to 20.08.24. an AI chat app i refused to give up on. it made it to Google Play."
+    },
+    {
+      "date": "oct 2024",
+      "title": "Metz + AIDocx",
+      "text": "maps, AI and react native. plus a google docs clone with AI baked in."
+    },
+    {
+      "date": "jun 2026",
+      "title": "Metz V2",
+      "text": "full-stack for real: flask, firebase, mysql, websockets, on web + android."
+    },
+    {
+      "date": "sep 2026",
+      "title": "the roblox arc",
+      "text": "Roll Pets RNG and Pet Park, written in luau with rojo."
+    },
+    {
+      "date": "oct 2026",
+      "title": "now",
+      "text": "PhotoClicker, this website, and whatever comes next."
+    }
+  ],
+  "qa": [
+    {
+      "q": "where are you from?",
+      "a": "holon, israel. right next to tel aviv."
+    },
+    {
+      "q": "when did you start coding?",
+      "a": "2022. one html page, then a rock paper scissors game, and i never stopped."
+    },
+    {
+      "q": "what do you build?",
+      "a": "android apps with expo + flask, roblox games in luau, and python tools for windows."
+    },
+    {
+      "q": "school or work?",
+      "a": "high school. everything here is built for fun."
+    },
+    {
+      "q": "a project you refused to quit?",
+      "a": "TicAI. started it 22.06.24, finally made it work 20.08.24."
+    },
+    {
+      "q": "apps on google play?",
+      "a": "five: TicAI, Poster, fakeLive, PrivatePhotos and NetBook. fakeLive passed 10K downloads."
+    }
+  ],
+  "stack": [
+    {
+      "group": "languages",
+      "items": [
+        "JavaScript",
+        "Python",
+        "Luau",
+        "HTML",
+        "CSS",
+        "SCSS"
+      ]
+    },
+    {
+      "group": "mobile",
+      "items": [
+        "React Native",
+        "Expo",
+        "Android",
+        "EAS"
+      ]
+    },
+    {
+      "group": "backend",
+      "items": [
+        "Flask",
+        "Firebase",
+        "MySQL",
+        "WebSockets",
+        "REST"
+      ]
+    },
+    {
+      "group": "games",
+      "items": [
+        "Roblox Studio",
+        "Rojo",
+        "Luau"
+      ]
+    },
+    {
+      "group": "tools",
+      "items": [
+        "Git",
+        "GitHub Actions",
+        "OpenCV",
+        "MapLibre",
+        "Three.js"
+      ]
+    }
+  ],
+  "hidden_repos": [
+    "roblox-automation"
+  ],
+  "play_store": {
+    "TicAI": "",
+    "Poster": "",
+    "fakeLive": "10K+",
+    "PrivatePhotos": "",
+    "NetBook": ""
+  },
+  "description_overrides": {
+    "BuyList": "shopping list app. past me was not a fan.",
+    "Poster": "a posting app on google play. taught me how not to store data in firebase.",
+    "Portfolio": "this website. python + javascript + three.js.",
+    "fakeLive": "fake livestream prank app. 10K+ downloads on google play."
+  }
+}

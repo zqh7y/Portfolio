@@ -1,0 +1,16 @@
+{
+  "name": "zzqxck-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "zzqxck's portfolio: Flask (Python) backend + vanilla JS, GSAP and Three.js frontend.",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "dev": "python app.py",
+    "test": "python -m pytest -q"
+  },
+  "devDependencies": {
+    "gsap": "3.12.5",
+    "lenis": "1.1.14",
+    "three": "0.169.0"
+  }
+}
