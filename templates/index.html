@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>{{ p.name }} · {{ p.role }}</title>
+  <title>{{ p.name }}</title>
   <meta name="description" content="{{ p.name }}: {{ p.role }} from {{ p.location }}. Android apps, Roblox games and Python tools.">
   <meta name="theme-color" content="#ffffff">
+  <meta name="site-mode" content="{{ 'static' if static_build else 'server' }}">
   <meta property="og:title" content="{{ p.name }} · portfolio">
   <meta property="og:description" content="{{ p.tagline }}">
   <meta property="og:image" content="{{ url_for('static', filename='img/og.jpg', _external=True) }}">
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
-  <script>document.documentElement.classList.replace('no-js', 'js')</script>
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js')</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -318,7 +319,7 @@
       <p class="label"><span>( 008 )</span> the lab</p>
       <div class="lab__head">
         <h2 class="h2"><span data-split="words">hatch an</span> <em class="serif" data-split="words">egg.</em></h2>
-        <p class="lab__sub">the python server rolls first, the browser just animates it. same as in roll pets rng. good luck.</p>
+        <p class="lab__sub">{% if static_build %}same odds as the python server, but in this static version your browser does the rolling. good luck.{% else %}the python server rolls first, the browser just animates it. same as in roll pets rng. good luck.{% endif %}</p>
       </div>
       <div class="lab__grid">
         <div class="lab__stage">

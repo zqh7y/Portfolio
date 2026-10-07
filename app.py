@@ -29,26 +29,52 @@ def load_profile() -> dict:
 PROFILE = load_profile()
 
 
+def render_page(static: bool = False) -> str:
+    return render_template("index.html", p=PROFILE, year=datetime.now().year, static_build=static)
+
+
+def public_profile() -> dict:
+    return {k: v for k, v in PROFILE.items() if k not in ("hidden_repos", "description_overrides")}
+
+
+def repos_payload() -> dict:
+    return github.get_repos(PROFILE, SNAPSHOT)
+
+
+def stats_payload() -> dict:
+    feed = repos_payload()
+    return {"source": feed["source"], **github.stats(feed["repos"], PROFILE["since"])}
+
+
+def odds_payload() -> list[dict]:
+    return [
+        {**{k: pet[k] for k in ("id", "name", "rarity")}, "chance_label": hatch.format_odds(pet["odds"])}
+        for pet in hatch.PETS + hatch.COMMONS
+    ]
+
+
 @app.get("/")
 def index():
-    return render_template("index.html", p=PROFILE, year=datetime.now().year)
+    return render_page()
 
 
+# The .json routes are what the page fetches; build.py writes the same files for static hosting.
 @app.get("/api/profile")
+@app.get("/api/profile.json")
 def api_profile():
-    public = {k: v for k, v in PROFILE.items() if k not in ("hidden_repos", "description_overrides")}
-    return jsonify(public)
+    return jsonify(public_profile())
 
 
 @app.get("/api/repos")
+@app.get("/api/repos.json")
 def api_repos():
-    return jsonify(github.get_repos(PROFILE, SNAPSHOT))
+    return jsonify(repos_payload())
 
 
 @app.get("/api/stats")
+@app.get("/api/stats.json")
 def api_stats():
-    feed = github.get_repos(PROFILE, SNAPSHOT)
-    return jsonify({"source": feed["source"], **github.stats(feed["repos"], PROFILE["since"])})
+    return jsonify(stats_payload())
 
 
 @app.post("/api/hatch")
@@ -57,11 +83,9 @@ def api_hatch():
 
 
 @app.get("/api/hatch/odds")
+@app.get("/api/odds.json")
 def api_hatch_odds():
-    return jsonify([
-        {**{k: pet[k] for k in ("id", "name", "rarity")}, "chance_label": hatch.format_odds(pet["odds"])}
-        for pet in hatch.PETS + hatch.COMMONS
-    ])
+    return jsonify(odds_payload())
 
 
 @app.get("/healthz")

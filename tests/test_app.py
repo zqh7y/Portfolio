@@ -104,3 +104,29 @@ def test_profile_json_is_valid():
         profile = json.load(f)
     for key in ("name", "github_user", "featured", "lore", "stack", "qa"):
         assert key in profile
+
+
+def test_json_routes_match_plain_routes(client):
+    assert client.get("/api/repos.json").get_json()["repos"] == client.get("/api/repos").get_json()["repos"]
+    assert client.get("/api/odds.json").get_json() == client.get("/api/hatch/odds").get_json()
+    assert client.get("/api/stats.json").status_code == 200
+    assert "hidden_repos" not in client.get("/api/profile.json").get_json()
+
+
+def test_static_build(tmp_path, monkeypatch):
+    import build
+
+    monkeypatch.setattr(github, "_fetch_live", lambda _user: (_ for _ in ()).throw(OSError("offline")))
+    github.clear_cache()
+    out = build.build(tmp_path / "dist", site_url="https://example.com/site/")
+    github.clear_cache()
+    html = (out / "index.html").read_text(encoding="utf-8")
+    assert '"/static/' not in html
+    assert 'src="./static/js/main.js"' in html
+    assert '"three": "./static/vendor/three/three.module.min.js"' in html
+    assert 'content="https://example.com/site/static/img/og.jpg"' in html
+    for name in ("repos.json", "stats.json", "odds.json", "profile.json"):
+        assert (out / "api" / name).is_file()
+    repos = json.loads((out / "api" / "repos.json").read_text(encoding="utf-8"))
+    assert repos["source"] == "static"
+    assert (out / "static" / "js" / "main.js").is_file()

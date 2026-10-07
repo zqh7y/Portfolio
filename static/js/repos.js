@@ -42,17 +42,17 @@ export async function initRepos({ gsap, ScrollTrigger, github }) {
 
   let feed, stats;
   try {
-    [feed, stats] = await Promise.all([getJSON('/api/repos'), getJSON('/api/stats')]);
+    [feed, stats] = await Promise.all([getJSON('api/repos.json'), getJSON('api/stats.json')]);
   } catch {
     source.textContent = 'offline · ';
     source.append(h('a', { href: github, target: '_blank', rel: 'noopener' }, 'open github ↗'));
     return;
   }
 
-  const when = new Date(feed.fetched_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const at = new Date(feed.fetched_at);
   source.textContent = feed.source === 'live'
-    ? `● live from github · ${feed.repos.length} repos · ${when}`
-    : `○ snapshot · ${feed.repos.length} repos`;
+    ? `● live from github · ${feed.repos.length} repos · ${at.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
+    : `○ ${feed.source === 'static' ? 'synced' : 'snapshot'} ${at.toLocaleDateString([], { day: 'numeric', month: 'short' })} · ${feed.repos.length} repos`;
 
   // language bar
   stats.languages.forEach((l) => {

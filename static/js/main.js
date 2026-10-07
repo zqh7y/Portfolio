@@ -314,7 +314,7 @@ function initLab() {
       ui.rarity.textContent = 'rolling';
       ui.rarity.dataset.r = '';
       ui.name.textContent = 'hatching…';
-      ui.chance.textContent = 'the server is rolling';
+      ui.chance.textContent = document.querySelector('meta[name="site-mode"]')?.content === 'static' ? 'rolling…' : 'the server is rolling';
       ui.tags.textContent = '';
       return;
     }
@@ -368,7 +368,7 @@ async function renderOdds(colors, formatOdds) {
   const list = $('#odds-list');
   let rows;
   try {
-    const res = await fetch('/api/hatch/odds');
+    const res = await fetch('api/odds.json');
     if (!res.ok) throw new Error(res.status);
     rows = await res.json();
   } catch {

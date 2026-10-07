@@ -62,9 +62,12 @@ function localRoll() {
   return { pet, size, shiny, chance, chance_label: formatOdds(chance) };
 }
 
+const STATIC_SITE = document.querySelector('meta[name="site-mode"]')?.content === 'static';
+
 async function rollFromServer() {
+  if (STATIC_SITE) return localRoll();
   try {
-    const res = await fetch('/api/hatch', { method: 'POST' });
+    const res = await fetch('api/hatch', { method: 'POST' });
     if (!res.ok) throw new Error(res.status);
     return await res.json();
   } catch {

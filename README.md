@@ -31,7 +31,8 @@ python -m pytest
 
 | Path | What it does |
 | --- | --- |
-| `app.py` | Flask app: `/` page, `/api/repos`, `/api/stats`, `/api/hatch`, `/api/hatch/odds`, `/api/profile` |
+| `app.py` | Flask app: `/` page, `/api/repos.json`, `/api/stats.json`, `/api/odds.json`, `/api/profile.json`, `POST /api/hatch` |
+| `build.py` | Static export to `dist/` for GitHub Pages |
 | `backend/github.py` | Live repo feed from the GitHub API (cached 15 min). Falls back to `data/repos_snapshot.json` when offline |
 | `backend/hatch.py` | Server-side egg rolls: the server rolls first, the browser just animates the result |
 | `data/profile.json` | **All the text on the site**: bio, projects, timeline, Q&A, stack. Edit this to change content |
@@ -54,6 +55,18 @@ Everything personal lives in `data/profile.json`:
 - `email`: leave empty to hide it, or set it to show a copy-to-clipboard button.
 
 Set `GITHUB_TOKEN` in the environment if you hit GitHub's anonymous rate limit.
+
+## Static version (GitHub Pages)
+
+`build.py` exports the whole site as plain files, so it can live on any static host:
+
+```bash
+SITE_URL=https://zqh7y.github.io/Portfolio/ python build.py   # -> dist/
+```
+
+Data is captured at build time into `dist/api/*.json`, and the egg lab rolls in the browser
+(same odds as the Python server). To publish on GitHub Pages, push the contents of `dist/`
+to a `gh-pages` branch and pick that branch under **Settings → Pages**.
 
 ## Deploy
 
