@@ -10,7 +10,29 @@
   "since": 2022,
   "github": "https://github.com/zqh7y",
   "avatar": "img/me/selfie.webp",
-  "email": "",
+  "email": "ytevil68@gmail.com",
+  "socials": [
+    {
+      "name": "instagram",
+      "handle": "@zzqxck",
+      "url": "https://www.instagram.com/zzqxck/"
+    },
+    {
+      "name": "tiktok",
+      "handle": "@zzqxck",
+      "url": "https://www.tiktok.com/@zzqxck"
+    },
+    {
+      "name": "roblox",
+      "handle": "zzqxck",
+      "url": "https://www.roblox.com/search/users?keyword=zzqxck"
+    },
+    {
+      "name": "github",
+      "handle": "zqh7y",
+      "url": "https://github.com/zqh7y"
+    }
+  ],
   "about": "i'm a high-school dev from holon who ships android apps, roblox games and python tools. i started vibe-coding in 2022 with one plain html page. since then i've shipped 5 apps to google play (one passed 10k downloads), built full-stack apps with flask + expo, and made roblox games with 100 pets and 1 in 964,817,253 odds.",
   "marquee": [
     "android",

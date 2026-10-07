@@ -369,13 +369,27 @@
         <span class="line"><span data-split="chars">let's build</span></span>
         <span class="line"><em class="serif" data-split="chars">something weird.</em></span>
       </h2>
-      <div class="contact__actions">
-        <a class="btn btn--ink btn--xl" href="{{ p.github }}" target="_blank" rel="noopener" data-magnetic>github ↗</a>
+      <ul class="socials">
         {% if p.email %}
-        <button class="btn btn--line btn--xl" type="button" data-copy="{{ p.email }}" data-magnetic>
-          <span>{{ p.email }}</span>
-        </button>
+        <li>
+          <button class="social" type="button" data-copy="{{ p.email }}" data-cursor="copy">
+            <span class="social__name">email</span>
+            <span class="social__handle mono">{{ p.email }}</span>
+            <span class="social__go mono">copy</span>
+          </button>
+        </li>
         {% endif %}
+        {% for s in p.socials %}
+        <li>
+          <a class="social" href="{{ s.url }}" target="_blank" rel="noopener" data-cursor="open ↗">
+            <span class="social__name">{{ s.name }}</span>
+            <span class="social__handle mono">{{ s.handle }}</span>
+            <span class="social__go mono">↗</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="contact__actions">
         <a class="btn btn--line btn--xl" href="#top" data-magnetic>back to top ↑</a>
       </div>
     </section>
@@ -387,6 +401,7 @@
     </div>
     <div class="footer__row mono">
       <span>© {{ year }} {{ p.name }}</span>
+      <span>{% for s in p.socials %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>
       <span>built with python + javascript + three.js</span>
       <span><span data-clock="{{ p.timezone }}">--:--</span> in {{ p.location }}</span>
     </div>
