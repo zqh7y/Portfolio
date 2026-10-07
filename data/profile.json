@@ -1,0 +1,94 @@
+{
+  "name": "zzqxck",
+  "handle": "zqh7y",
+  "role": "Full-Stack · Android · Roblox Developer",
+  "tagline": "Vibe-coding since 2022.",
+  "location": "Holon · Tel-Aviv",
+  "email": "ytevil68@gmail.com",
+  "github": "https://github.com/zqh7y",
+  "hireable": true,
+  "about": "I'm a high-school full-stack developer building apps, games and tools for fun — from meeting platforms to Roblox worlds. I move fast, ship often, and love turning raw ideas into things people actually use.",
+  "stats": [
+    { "label": "Public repos", "value": 22 },
+    { "label": "Building since", "value": 2022 },
+    { "label": "Stack", "value": "Full-Stack" }
+  ],
+  "skills": [
+    "JavaScript", "React Native", "Expo", "Python", "Flask",
+    "Firebase", "SQL Server", "Luau / Roblox", "Rojo", "Android", "AI / APIs"
+  ],
+  "projects": [
+    {
+      "name": "Metz V2",
+      "blurb": "Metz App & Metz Host App — a full-stack meetings platform across Web & Android.",
+      "tags": ["full-stack", "expo", "flask", "firebase", "sqlserver"],
+      "language": "JavaScript",
+      "stars": 3,
+      "url": "https://github.com/zqh7y/MetzV2",
+      "featured": true
+    },
+    {
+      "name": "Metz",
+      "blurb": "World's #1 future-meetings founder service — React Native app with maps, AI & APIs.",
+      "tags": ["ai", "api", "react-native", "map"],
+      "language": "JavaScript",
+      "stars": 2,
+      "url": "https://github.com/zqh7y/Metz",
+      "featured": true
+    },
+    {
+      "name": "TicAI",
+      "blurb": "A project I refused to give up on until it worked — and I made it.",
+      "tags": ["ai", "javascript"],
+      "language": "JavaScript",
+      "stars": 1,
+      "url": "https://github.com/zqh7y/TicAI",
+      "featured": true
+    },
+    {
+      "name": "CoinsHatcher",
+      "blurb": "A Roblox simulator place built with Luau & Rojo.",
+      "tags": ["luau", "roblox", "rojo"],
+      "language": "Luau",
+      "stars": 0,
+      "url": "https://github.com/zqh7y/CoinsHatcher",
+      "featured": true
+    },
+    {
+      "name": "RollPetsRNG",
+      "blurb": "A Roblox Studio incremental RNG game.",
+      "tags": ["luau", "roblox", "game"],
+      "language": "Luau",
+      "stars": 0,
+      "url": "https://github.com/zqh7y/RollPetsRNG",
+      "featured": false
+    },
+    {
+      "name": "AIDocx",
+      "blurb": "Google Docs, reimagined with an AI feature baked in.",
+      "tags": ["ai", "javascript"],
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/zqh7y/AIDocx",
+      "featured": false
+    },
+    {
+      "name": "NetBook",
+      "blurb": "My first Expo app released on Google Play.",
+      "tags": ["expo", "android", "react-native"],
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/zqh7y/NetBook",
+      "featured": false
+    },
+    {
+      "name": "PhotoClicker",
+      "blurb": "A Windows auto-clicker that finds an image on screen and clicks it.",
+      "tags": ["python", "automation"],
+      "language": "Python",
+      "stars": 0,
+      "url": "https://github.com/zqh7y/PhotoClicker",
+      "featured": false
+    }
+  ]
+}

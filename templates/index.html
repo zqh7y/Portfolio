@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ profile.name }} — portfolio</title>
+  <meta name="description" content="{{ profile.name }} · {{ profile.role }}. {{ profile.tagline }}" />
+  <meta name="theme-color" content="#f7f7f5" />
+  <link rel="icon" href="{{ url_for('static', filename='assets/favicon.svg') }}" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  </script>
+</head>
+<body class="is-loading">
+
+  <!-- ===== preloader ===== -->
+  <div class="loader" id="loader">
+    <div class="loader__count"><span id="loaderNum">0</span><sup>%</sup></div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+    <div class="loader__tag mono">booting {{ profile.handle }}.exe</div>
+  </div>
+
+  <!-- ===== cursor ===== -->
+  <div class="cursor" id="cursor"><span class="cursor__label" id="cursorLabel"></span></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ===== grain + grid overlays ===== -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <!-- ===== nav ===== -->
+  <header class="nav">
+    <a href="#top" class="nav__logo magnetic" data-cursor="home">
+      <span class="dot"></span>{{ profile.name }}
+    </a>
+    <nav class="nav__links">
+      <a href="#about" class="magnetic link-roll" data-text="about"><span>about</span></a>
+      <a href="#work" class="magnetic link-roll" data-text="work"><span>work</span></a>
+      <a href="#stack" class="magnetic link-roll" data-text="stack"><span>stack</span></a>
+      <a href="#contact" class="magnetic link-roll" data-text="contact"><span>contact</span></a>
+    </nav>
+    <div class="nav__status mono">
+      {% if profile.hireable %}<span class="pulse"></span>open to work{% endif %}
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== hero ===== -->
+    <section class="hero" id="hero">
+      <canvas id="webgl" class="hero__canvas"></canvas>
+
+      <div class="hero__meta mono">
+        <span>[ portfolio · 2026 ]</span>
+        <span id="clock">--:--:--</span>
+        <span>{{ profile.location }}</span>
+      </div>
+
+      <h1 class="hero__title" aria-label="{{ profile.name }}">
+        <span class="hero__line"><span class="split" data-split>{{ profile.name }}</span></span>
+      </h1>
+
+      <div class="hero__sub">
+        <p class="hero__role reveal-up">{{ profile.role }}</p>
+        <p class="hero__tag reveal-up"><em>{{ profile.tagline }}</em></p>
+      </div>
+
+      <div class="hero__scroll mono">
+        <span>scroll</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ===== marquee ===== -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marquee">
+        {% for _ in range(2) %}
+        <div class="marquee__group">
+          {% for s in profile.skills %}<span>{{ s }}</span><span class="star">✦</span>{% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ===== about ===== -->
+    <section class="about section" id="about">
+      <div class="section__label mono"><span>01</span> about</div>
+      <p class="about__text" data-words>{{ profile.about }}</p>
+
+      <div class="stats">
+        {% for s in profile.stats %}
+        <div class="stat tilt">
+          <div class="stat__value" {% if s.value is number %}data-count="{{ s.value }}"{% endif %}>{{ s.value if s.value is not number else 0 }}</div>
+          <div class="stat__label mono">{{ s.label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ===== work ===== -->
+    <section class="work section" id="work">
+      <div class="section__label mono"><span>02</span> selected work</div>
+      <h2 class="section__title"><span class="split" data-split>things i shipped</span></h2>
+
+      <div class="projects" id="projects">
+        {% for p in profile.projects %}
+        <a class="card tilt {% if p.featured %}card--featured{% endif %}" href="{{ p.url }}" target="_blank" rel="noopener" data-cursor="open">
+          <div class="card__glare"></div>
+          <div class="card__top mono">
+            <span>{{ '%02d' % loop.index }}</span>
+            <span>{{ p.language }}{% if p.stars %} · ★ {{ p.stars }}{% endif %}</span>
+          </div>
+          <h3 class="card__name">{{ p.name }}</h3>
+          <p class="card__blurb">{{ p.blurb }}</p>
+          <div class="card__tags">
+            {% for t in p.tags %}<span class="chip mono">{{ t }}</span>{% endfor %}
+          </div>
+          <span class="card__arrow">↗</span>
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="live mono" id="liveRepos" hidden>
+        <span class="pulse"></span> <span id="liveText"></span>
+      </div>
+    </section>
+
+    <!-- ===== stack (3D cube) ===== -->
+    <section class="stack section" id="stack">
+      <div class="section__label mono"><span>03</span> stack</div>
+      <div class="stack__wrap">
+        <div class="cube-scene">
+          <div class="cube" id="cube">
+            <div class="cube__face cube__face--front">JS</div>
+            <div class="cube__face cube__face--back">PY</div>
+            <div class="cube__face cube__face--right">LUAU</div>
+            <div class="cube__face cube__face--left">EXPO</div>
+            <div class="cube__face cube__face--top">SQL</div>
+            <div class="cube__face cube__face--bottom">AI</div>
+          </div>
+        </div>
+        <ul class="stack__list">
+          {% for s in profile.skills %}
+          <li class="stack__item"><span class="mono">{{ '%02d' % loop.index }}</span>{{ s }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== contact ===== -->
+    <section class="contact section" id="contact">
+      <div class="section__label mono"><span>04</span> contact</div>
+      <h2 class="contact__title">
+        <span class="split" data-split>let's build</span><br />
+        <span class="split serif" data-split>something weird.</span>
+      </h2>
+
+      <button class="contact__mail magnetic" id="copyMail" data-email="{{ profile.email }}" data-cursor="copy">
+        <span class="contact__mail-text">{{ profile.email }}</span>
+        <span class="contact__mail-hint mono" id="copyHint">click to copy</span>
+      </button>
+
+      <div class="contact__links">
+        <a href="{{ profile.github }}" target="_blank" rel="noopener" class="pill magnetic" data-cursor="go">github ↗</a>
+        <a href="mailto:{{ profile.email }}" class="pill magnetic" data-cursor="mail">email ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer mono">
+    <span>© 2026 {{ profile.name }}</span>
+    <span>built with js + python ✦ three.js</span>
+    <a href="#top" class="magnetic">back to top ↑</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="{{ url_for('static', filename='js/scene.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
