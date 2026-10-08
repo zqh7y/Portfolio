@@ -64,7 +64,7 @@ const setCursor = fine && !reduce ? initCursor(gsap) : () => {};
 if (fine) { initMagnetic(gsap); initTilt(gsap); }
 initScramble();
 initStickers(gsap);
-initPile(gsap);
+initPile(gsap, reduce);
 initClocks();
 initMarquees(gsap, getVelocity);
 
@@ -159,13 +159,6 @@ function scrollAnimations() {
         rotationY: 0, scale: 1, ease: 'none',
         scrollTrigger: { trigger: p, containerAnimation: ride, start: 'left right', end: 'left 35%', scrub: true },
       });
-      const img = $('.project__visual--cover img', p);
-      if (img) {
-        gsap.fromTo(img, { xPercent: -7 }, {
-          xPercent: 7, ease: 'none',
-          scrollTrigger: { trigger: p, containerAnimation: ride, start: 'left right', end: 'right left', scrub: true },
-        });
-      }
     });
   });
   mm.add('(max-width: 900px)', () => {
@@ -175,13 +168,15 @@ function scrollAnimations() {
   gsap.to('#progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
 
   const nav = $('#nav');
+  const paintNav = (y) => nav.classList.toggle('is-scrolled', y > innerHeight * 0.6);
   ScrollTrigger.create({
     start: 0,
     end: 'max',
     onUpdate: (self) => {
       nav.classList.toggle('is-hidden', self.direction === 1 && self.scroll() > innerHeight * 0.9);
-      nav.classList.toggle('is-scrolled', self.scroll() > innerHeight * 0.6);
+      paintNav(self.scroll());
     },
+    onRefresh: (self) => paintNav(self.scroll()),
   });
   $$('.nav__links a').forEach((link) => {
     const section = $(link.getAttribute('href'));
@@ -241,6 +236,11 @@ function scrollAnimations() {
 
   // metz: phones float, rise in and drift on scroll; eras, numbers and features stagger in
   enter('.metz__head > *:not(.metz__title-row)', { y: 40, opacity: 0, duration: 1, stagger: 0.08, ease: 'expo.out' }, { trigger: '.metz', start: 'top 75%' });
+  mm.add('(min-width: 901px)', () => {
+    gsap.set('.phone--metz', { rotation: -4 });
+    gsap.set('.phone--host', { rotation: 4 });
+    return () => gsap.set('.phone', { rotation: 0 });
+  });
   enter('.phone', { y: 160, opacity: 0, rotationX: 25, transformPerspective: 1200, duration: 1.4, stagger: 0.15, ease: 'expo.out' }, { trigger: '.metz__stage', start: 'top 80%' });
   if (!reduce) {
     gsap.to('.phone__screen', { y: -14, duration: 2.8, yoyo: true, repeat: -1, ease: 'sine.inOut', stagger: 1.4 });
@@ -294,7 +294,7 @@ function scrollAnimations() {
     ScrollTrigger.create({ trigger: lang, start: 'top 90%', once: true, onEnter: () => lang.classList.add('is-in') });
   });
   $$('.stack__group').forEach((group) => enter($$('li', group), {
-    scale: 0.6, opacity: 0, duration: 0.8, stagger: 0.04, ease: 'back.out(2)',
+    scale: 0.6, opacity: 0, duration: 0.8, stagger: 0.04, ease: 'back.out(2)', clearProps: 'transform,translate,rotate,scale',
   }, { trigger: group, start: 'top 88%' }));
   enter('.stack__sphere', { scale: 0.6, opacity: 0, rotation: -20, duration: 1.6, ease: 'expo.out' }, { trigger: '.stack__sphere', start: 'top 85%' });
 

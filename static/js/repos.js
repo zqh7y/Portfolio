@@ -99,7 +99,7 @@ export async function initRepos({ gsap, ScrollTrigger, github }) {
         c.classList.toggle('is-hidden', !on);
         return on;
       });
-      gsap.fromTo(shown, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.03, ease: 'expo.out', clearProps: 'transform' });
+      gsap.fromTo(shown, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.03, ease: 'expo.out', clearProps: 'transform,translate,rotate,scale' });
       ScrollTrigger.refresh();
     });
     filters.append(btn);
@@ -110,7 +110,7 @@ export async function initRepos({ gsap, ScrollTrigger, github }) {
   ScrollTrigger.batch(cards, {
     start: 'top 92%',
     once: true,
-    onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 0.9, stagger: 0.06, ease: 'expo.out', clearProps: 'transform' }),
+    onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 0.9, stagger: 0.06, ease: 'expo.out', clearProps: 'transform,translate,rotate,scale' }),
   });
   ScrollTrigger.refresh();
 }

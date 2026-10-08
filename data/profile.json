@@ -169,21 +169,21 @@
         "name": "GetTogetherGo",
         "note": "the first try",
         "tag": "expo sdk 48",
-        "detail": "a map of meetups, chat and local accounts"
+        "detail": "GTG v1: a map of meetups, chat and groups, on sample data"
       },
       {
         "year": "2023",
-        "name": "GTG v1 + MeetingsApp",
-        "note": "more tries",
+        "name": "MeetingsApp",
+        "note": "same idea, new name",
         "tag": "sqlite",
-        "detail": "create and find meetings, groups, chat"
+        "detail": "adds a find-a-meeting screen and local sqlite accounts"
       },
       {
         "year": "2024",
         "name": "Metz",
         "note": "the comeback",
         "tag": "expo sdk 51",
-        "detail": "a night-mode map, live location, a create flow"
+        "detail": "a night-mode map, your location and city, a create flow"
       },
       {
         "year": "2026",
@@ -301,7 +301,7 @@
       "repo_name": "NetBook",
       "icon": "img/apps/netbook.webp",
       "year": "2023",
-      "badge": "my first on google play",
+      "badge": "my first google play release",
       "one_liner": "notes in folders.",
       "text": "a minimal offline notebook: folders, notes up to 10,000 characters, a photo on any note and five custom fonts.",
       "features": [
@@ -471,22 +471,17 @@
     {
       "date": "apr 2023",
       "title": "GetTogetherGo",
-      "text": "my first expo app, and the start of the metz idea: a map of meetups, chat and local accounts."
+      "text": "my first expo app, and the start of the metz idea: a map of meetups, chat and groups."
     },
     {
       "date": "may 2023",
       "title": "more tries",
-      "text": "GTG v1 and MeetingsApp: the same idea again, with sqlite and a find-a-meeting screen."
+      "text": "MeetingsApp: the same idea under a new name, with a find-a-meeting screen and sqlite."
     },
     {
       "date": "jun 2023",
       "title": "NetBook",
       "text": "a notes app with folders. it became my first app on google play."
-    },
-    {
-      "date": "aug 2023",
-      "title": "a gift in code",
-      "text": "built my mom a portfolio site for her birthday."
     },
     {
       "date": "2024",
@@ -501,7 +496,7 @@
     {
       "date": "oct 2024",
       "title": "Metz",
-      "text": "the comeback after five failed apps on the same idea: a night-mode map, live location and a create flow."
+      "text": "the comeback after five failed apps on the same idea: a night-mode map, your location and city, and a create flow."
     },
     {
       "date": "jun 2026",
@@ -516,7 +511,7 @@
     {
       "date": "oct 2026",
       "title": "now",
-      "text": "metz heading for google play, PhotoClicker, WikiWonder and this website."
+      "text": "metz heading for google play, PhotoClicker and this website."
     }
   ],
   "qa": [
@@ -530,14 +525,14 @@
     },
     {
       "q": "what do you build?",
-      "a": "apps, web, games and programs. mostly react native + expo apps with flask backends."
+      "a": "apps, web, games and programs. mostly react native + expo apps, with a flask backend when an app needs one, like metz."
     },
     {
       "q": "biggest project?",
       "a": "metz. it started as GetTogetherGo in 2023 and i'm still building it, now as metz + metz host."
     },
     {
-      "q": "apps on google play?",
+      "q": "apps you shipped to google play?",
       "a": "five shipped: NetBook, Private Photos, TicAI, Virtual Live (fakeLive) and Poster. Virtual Live passed 10K downloads."
     },
     {
@@ -615,7 +610,7 @@
       "name": "SCSS",
       "repos": 1,
       "color": "#c6538c",
-      "where": "a birthday site for my mom"
+      "where": "an early styled site"
     },
     {
       "name": "YAML",

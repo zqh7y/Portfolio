@@ -165,7 +165,7 @@
     <!-- ───────────── what i build ───────────── -->
     <section class="section build" id="build">
       <p class="label"><span>( 003 )</span> what i build</p>
-      <h2 class="h2"><span data-split="words">four things,</span> <em class="serif" data-split="words">one dev.</em></h2>
+      <h2 class="h2"><span data-split="words">four things</span> <em class="serif" data-split="words">i build.</em></h2>
       <div class="pillars">
         {% for pl in p.pillars %}
         <article class="pillar pillar--{{ pl.key }}" data-tilt>
@@ -326,10 +326,10 @@
       <div class="gplay__more">
         <div class="gplay__next">
           <img src="{{ url_for('static', filename=p.next_app.icon) }}" alt="" loading="lazy">
-          <div><span class="mono">and one more</span><p><b>{{ p.next_app.name }}</b>, {{ p.next_app.text }}.</p></div>
+          <div><span class="mono">also made</span><p><b>{{ p.next_app.name }}</b>, {{ p.next_app.text }}.</p></div>
         </div>
         <div class="gplay__also">
-          <span class="mono">also built, not on the store</span>
+          <span class="mono">also built, never published</span>
           <ul>{% for x in p.also_built %}<li><a href="{{ x.repo }}" target="_blank" rel="noopener"><b>{{ x.name }}</b><span>{{ x.text }}</span><i>↗</i></a></li>{% endfor %}</ul>
         </div>
       </div>
@@ -371,6 +371,7 @@
                   {% for app in w.apps %}<span class="shelf__app{% if app.status %} shelf__app--soon{% endif %}" style="--i: {{ loop.index0 - (w.apps | length - 1) / 2 }}"><img src="{{ url_for('static', filename=app.icon) }}" alt="" loading="lazy" draggable="false"><small>{{ app.name }}{% if app.status %} · {{ app.status }}{% endif %}</small></span>{% endfor %}
                 </div>
                 {% elif w.image %}
+                {% if w.image_fit == 'cover' %}<img class="project__blur" src="{{ url_for('static', filename=w.image) }}" alt="" aria-hidden="true" loading="lazy" draggable="false">{% endif %}
                 <img src="{{ url_for('static', filename=w.image) }}" alt="{{ w.title }}" loading="lazy" draggable="false">
                 {% endif %}
                 {% if w.badge %}<span class="project__badge">{{ w.badge }}</span>{% endif %}

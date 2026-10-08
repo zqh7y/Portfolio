@@ -201,7 +201,7 @@ export function toast(msg) {
 }
 
 // Photo pile: drag a polaroid anywhere, tap (or Enter) to send it to the back.
-export function initPile(gsap) {
+export function initPile(gsap, reduce = false) {
   const pile = document.getElementById('pile');
   if (!pile) return;
   const cards = [...pile.querySelectorAll('.polaroid')];
@@ -222,8 +222,9 @@ export function initPile(gsap) {
 
     const shuffle = () => {
       if (cards.length < 2) return;
-      busy?.kill();
+      busy?.progress(1).kill(); // settle any running shuffle first, so its lifted y is never taken as home
       const y0 = gsap.getProperty(card, 'y');
+      if (reduce) { restack({ card, where: 'bottom' }); return; }
       busy = gsap.timeline({ onComplete: () => { busy = null; } })
         .to(card, { y: y0 - 90, rotation: base + 12, duration: 0.25, ease: 'power2.out' })
         .add(() => restack({ card, where: 'bottom' }))
@@ -232,7 +233,7 @@ export function initPile(gsap) {
 
     card.addEventListener('pointerdown', (e) => {
       if (e.button > 0) return;
-      busy?.kill();
+      busy?.progress(1).kill();
       busy = null;
       gsap.killTweensOf(card, 'x,y,rotation,scale');
       card.setPointerCapture(e.pointerId);
