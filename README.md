@@ -82,6 +82,10 @@ to a `gh-pages` branch and pick that branch under **Settings → Pages**.
 
 ## Deploy
 
+The live site is deployed by GitHub Actions (`.github/workflows/pages.yml`): every push to `master` runs `build.py` and publishes `dist/` to GitHub Pages.
+
+To run the full Python version instead, any host that runs Python works (Render, Railway, Fly, a VPS).
+
 Any host that runs Python works (Render, Railway, Fly, a VPS). A `Procfile` is included:
 
 ```
