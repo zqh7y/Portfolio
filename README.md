@@ -1,7 +1,19 @@
 # zzqxck · portfolio
 
-My personal site: Android apps, Roblox games and Python tools, in one white, very animated page.
+### 🌐 **[Visit the site → zqh7y.github.io/Portfolio](https://zqh7y.github.io/Portfolio/)**
 
+Works on phone and desktop, no install needed.
+
+![zzqxck portfolio preview](static/img/og.jpg)
+
+I build apps, web, games and programs, mostly with React Native + Expo.
+Highlights: **Metz** (a meetups app, my biggest project) and **5 apps shipped to Google Play** (Virtual Live passed 10K downloads).
+
+Find me: [Instagram](https://www.instagram.com/zzqxck/) · [TikTok](https://www.tiktok.com/@zzqxck) · [GitHub](https://github.com/zqh7y)
+
+---
+
+## How it's built
 - **Python (Flask)** renders the page from `data/profile.json` and serves a small JSON API.
 - **JavaScript** (no build step) does everything that moves: GSAP + ScrollTrigger scroll animations, Lenis smooth scroll, and two **Three.js** scenes: a holographic chrome blob in the hero and an egg-hatching lab.
 
