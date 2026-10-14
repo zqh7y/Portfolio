@@ -2,6 +2,19 @@
   "captured_at": "2026-10-07T22:00:00Z",
   "repos": [
     {
+      "name": "RobloxExploits",
+      "description": "Roblox Exploits. Can be used in any executor for any roblox game.",
+      "language": "Luau",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "topics": [],
+      "homepage": "",
+      "created_at": "2026-10-12T20:00:00Z",
+      "pushed_at": "2026-10-14T00:15:00Z",
+      "fork": false,
+      "html_url": "https://github.com/zqh7y/RobloxExploits"
+    },
+    {
       "name": "Portfolio",
       "description": "My portfolio",
       "language": null,

@@ -438,6 +438,22 @@
       "visual": "image"
     },
     {
+      "id": "zzqxckhub",
+      "title": "zzqxck’s Hub",
+      "kind": "script · luau",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/RobloxExploits",
+      "image": "img/zzqxckhub.webp",
+      "image_fit": "cover",
+      "tint": "#7c6cff",
+      "stack": [
+        "Luau",
+        "Roblox"
+      ],
+      "blurb": "A compact Roblox script UI in one file: fly, follow, noclip, anti-AFK, 11 dances and gameplay toggles across three tabs. Every toggle has a hotkey, sliders save between sessions, and RightShift hides it.",
+      "visual": "image"
+    },
+    {
       "id": "photoclicker",
       "title": "PhotoClicker",
       "kind": "program · python",
@@ -759,6 +775,7 @@
     "BuyList": "shopping list app. past me was not a fan.",
     "Poster": "save & publish images app, shipped to google play. taught me how not to store data in firebase.",
     "Portfolio": "this website. python + javascript + three.js.",
-    "fakeLive": "fake livestream prank app. it was \"Virtual Live\" on google play and passed 10K downloads."
+    "fakeLive": "fake livestream prank app. it was \"Virtual Live\" on google play and passed 10K downloads.",
+    "RobloxExploits": "zzqxck's Hub: a compact fly / follow / dance script UI for roblox."
   }
 }
