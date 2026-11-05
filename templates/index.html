@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{ p.name }}</title>
-  <meta name="description" content="{{ p.name }}: {{ p.role }} from {{ p.location }}. Android apps, Roblox games and Python tools.">
+  <meta name="description" content="{{ p.name }}: {{ p.role }} from {{ p.location }}. Android apps, phone games, Roblox games and Python tools.">
   <meta name="theme-color" content="#ffffff">
   <meta name="site-mode" content="{{ 'static' if static_build else 'server' }}">
   <meta property="og:title" content="{{ p.name }} · portfolio">
@@ -147,6 +147,9 @@
         <article class="bento__card bento__card--now">
           <span class="mono">currently</span>
           <p>{{ p.now }}</p>
+          {% if p.last_push %}
+          <a class="pill pill--live now__push" href="{{ p.last_push.html_url }}" target="_blank" rel="noopener" data-cursor="open ↗"><i aria-hidden="true"></i>last push · <b>{{ p.last_push.name }}</b> · <time datetime="{{ p.last_push.pushed_at }}" data-ago>{{ p.last_push.pushed_at[:10] }}</time></a>
+          {% endif %}
         </article>
         <article class="bento__card bento__card--where">
           <span class="mono">based in</span>
@@ -370,11 +373,17 @@
                 <div class="shelf" aria-hidden="true">
                   {% for app in w.apps %}<span class="shelf__app{% if app.status %} shelf__app--soon{% endif %}" style="--i: {{ loop.index0 - (w.apps | length - 1) / 2 }}"><img src="{{ url_for('static', filename=app.icon) }}" alt="" loading="lazy" draggable="false"><small>{{ app.name }}{% if app.status %} · {{ app.status }}{% endif %}</small></span>{% endfor %}
                 </div>
+                {% elif w.visual == 'code' %}
+                <div class="codecard" aria-hidden="true">
+                  <span class="codecard__bar"><i></i><i></i><i></i><small class="mono">{{ w.repo.rsplit('/', 1)[-1] }}</small></span>
+                  <span class="codecard__name">{{ w.title }}</span>
+                  <span class="codecard__lang mono">{{ w.kind }}</span>
+                </div>
                 {% elif w.image %}
                 {% if w.image_fit == 'cover' %}<img class="project__blur" src="{{ url_for('static', filename=w.image) }}" alt="" aria-hidden="true" loading="lazy" draggable="false">{% endif %}
                 <img src="{{ url_for('static', filename=w.image) }}" alt="{{ w.title }}" loading="lazy" draggable="false">
                 {% endif %}
-                {% if w.badge %}<span class="project__badge">{{ w.badge }}</span>{% endif %}
+                {% if w.badge %}<span class="project__badge{% if w.auto %} project__badge--new{% endif %}">{{ w.badge }}</span>{% endif %}
                 <span class="project__glare" aria-hidden="true"></span>
               </div>
               <div class="project__info">
@@ -389,6 +398,7 @@
                   {% for s in w.stack %}<li>{{ s }}</li>{% endfor %}
                 </ul>
                 <span class="project__link mono">{{ w.link_label or 'view repo' }} ↗</span>
+                {% if w.auto %}<span class="project__auto mono">✦ added by the daily sync</span>{% endif %}
               </div>
             </a>
           </article>
@@ -594,7 +604,7 @@
     <div class="footer__row mono">
       <span>© {{ year }} {{ p.name }}</span>
       <span>{% for s in p.socials %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>
-      <span>built with python + javascript + three.js</span>
+      <span>built with python + javascript + three.js · updated <time datetime="{{ p.updated_iso }}">{{ p.updated }}</time></span>
       <span><span data-clock="{{ p.timezone }}">--:--</span> in {{ p.location }}</span>
     </div>
   </footer>

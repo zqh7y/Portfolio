@@ -33,8 +33,8 @@
       "url": "https://github.com/zqh7y"
     }
   ],
-  "about": "i'm a high-school dev from holon. i build apps, web, games and programs, mostly with react native + expo. since 2022 i've made 13 react native projects, shipped 5 apps to google play (one passed 10k downloads), and spent three years coming back to one idea: metz, a meetups app i'm still building.",
-  "now": "building metz + metz host, making games, and teaching this site new tricks.",
+  "about": "i'm a high-school dev from holon. i build apps, web, games and programs, mostly with react native + expo. since 2022 i've made 13 react native projects, shipped 5 apps to google play (one passed 10k downloads), made games in luau and typescript, and spent three years coming back to one idea: metz, a meetups app i'm still building.",
+  "now": "building metz + metz host, getting dice idle ready for google play, and making cozy little games.",
   "marquee": [
     "apps",
     "web",
@@ -42,8 +42,10 @@
     "programs",
     "react native",
     "expo",
+    "typescript",
     "python",
     "flask",
+    "phaser",
     "javascript",
     "metz"
   ],
@@ -84,7 +86,8 @@
     {
       "value": 4,
       "suffix": "y",
-      "label": "shipping since 2022"
+      "label": "shipping since 2022",
+      "auto": "years"
     }
   ],
   "pillars": [
@@ -130,17 +133,22 @@
     {
       "key": "games",
       "count": "2",
-      "unit": "games in luau",
-      "text": "pet games with eggs, rebirths, upgrade trees, leaderboards and odds that go into the billions.",
+      "unit": "games, luau + typescript",
+      "text": "roblox pet games with eggs, rebirths and odds into the billions, plus my own phone games in typescript: an idle dice rpg and a cozy fishing game.",
       "examples": [
+        "Dice Idle",
+        "Driftwood Dock",
         "Roll Pets RNG",
         "Pet Park"
       ],
       "stack": [
+        "TypeScript",
+        "Phaser",
+        "Capacitor",
         "Luau",
-        "Rojo",
-        "Aftman"
-      ]
+        "Rojo"
+      ],
+      "count_from": "featured:game"
     },
     {
       "key": "programs",
@@ -404,6 +412,51 @@
   ],
   "featured": [
     {
+      "id": "driftwood",
+      "title": "Driftwood Dock",
+      "kind": "game · typescript",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/DriftwoodGame",
+      "screens": [
+        "img/driftwood/sunset.webp",
+        "img/driftwood/day.webp",
+        "img/driftwood/night.webp"
+      ],
+      "tint": "#ff8a3d",
+      "badge": "made in 8 hours",
+      "stack": [
+        "TypeScript",
+        "Canvas 2D",
+        "Vite",
+        "Capacitor"
+      ],
+      "blurb": "A cozy, mostly-AFK fishing game. An orange tabby in a bucket hat fishes off a dock while the lake follows your real clock, from sunrise to a starry night. 12 fantasy fish, weather that boosts your luck, an aquarium, and a sleep timer for playing in bed.",
+      "visual": "screens"
+    },
+    {
+      "id": "diceidle",
+      "title": "Dice Idle",
+      "kind": "game · typescript",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/GooglePlay-Game",
+      "screens": [
+        "img/diceidle/stage.webp",
+        "img/diceidle/intro.webp",
+        "img/diceidle/fight.webp"
+      ],
+      "tint": "#ff4fb3",
+      "badge": "coming to google play",
+      "stack": [
+        "TypeScript",
+        "Phaser 3",
+        "three.js",
+        "Capacitor",
+        "Firebase"
+      ],
+      "blurb": "My first idle game. Roll dice for 100 pets (1 in 2 up to 1 in 500Sp), grow your luck on an upgrade tree, then fight 3-minute survivor runs across 30 stages in 5 places. A 3D loading screen, a 10-chapter story with manga pages, and online leaderboards.",
+      "visual": "screens"
+    },
+    {
       "id": "rollpets",
       "title": "Roll Pets RNG",
       "kind": "game · luau",
@@ -526,8 +579,18 @@
     },
     {
       "date": "oct 2026",
+      "title": "PhotoClicker + Dice Idle",
+      "text": "a windows auto-clicker built by ci, then my first idle game: typescript + phaser, 100 pets, 30 stages and a story."
+    },
+    {
+      "date": "nov 2026",
+      "title": "Driftwood Dock",
+      "text": "a cozy fishing game with a cat, built in one 8-hour session. android app and browser version."
+    },
+    {
+      "date": "now",
       "title": "now",
-      "text": "metz heading for google play, PhotoClicker and this website."
+      "text": "metz heading for google play, dice idle getting ready to ship, and this site keeping itself up to date."
     }
   ],
   "qa": [
@@ -541,11 +604,16 @@
     },
     {
       "q": "what do you build?",
-      "a": "apps, web, games and programs. mostly react native + expo apps, with a flask backend when an app needs one, like metz."
+      "a": "apps, web, games and programs. mostly react native + expo apps with a flask backend when an app needs one, and games in typescript and luau."
     },
     {
       "q": "biggest project?",
       "a": "metz. it started as GetTogetherGo in 2023 and i'm still building it, now as metz + metz host."
+    },
+    {
+      "q": "newest thing you made?",
+      "a": "",
+      "auto": "newest"
     },
     {
       "q": "apps you shipped to google play?",
@@ -561,7 +629,7 @@
     },
     {
       "q": "languages?",
-      "a": "javascript, python, luau, sql, html, css and scss. javascript is home."
+      "a": "javascript, typescript, python, luau, sql, html, css and scss. javascript is home."
     },
     {
       "q": "school or work?",
@@ -599,10 +667,16 @@
       "where": "flask backends, PhotoClicker, tooling"
     },
     {
-      "name": "Luau",
+      "name": "TypeScript",
       "repos": 2,
+      "color": "#3178c6",
+      "where": "dice idle, driftwood dock"
+    },
+    {
+      "name": "Luau",
+      "repos": 3,
       "color": "#00a2ff",
-      "where": "the games"
+      "where": "the roblox games and zzqxck's hub"
     },
     {
       "name": "HTML",
@@ -680,6 +754,7 @@
         "Flask",
         "Jinja",
         "Firebase Auth",
+        "Firestore",
         "PostgreSQL",
         "MySQL",
         "SQLite",
@@ -696,12 +771,17 @@
         "Leaflet",
         "MapLibre GL",
         "SCSS",
-        "GitHub Pages"
+        "GitHub Pages",
+        "Vite"
       ]
     },
     {
       "group": "games",
       "items": [
+        "TypeScript",
+        "Phaser",
+        "Capacitor",
+        "Canvas 2D",
         "Luau",
         "Rojo",
         "Aftman"
@@ -756,13 +836,18 @@
     "SCSS",
     "Tkinter",
     "Express",
-    "MySQL"
+    "MySQL",
+    "TypeScript",
+    "Phaser",
+    "Capacitor",
+    "Vite"
   ],
   "hidden_repos": [
     "roblox-automation",
     "JustAriel.github.io",
     "RPSgameJustAriel.github.io",
-    "Alenas_Portfolio"
+    "Alenas_Portfolio",
+    "zqh7y"
   ],
   "play_store": {
     "TicAI": "",
@@ -777,5 +862,7 @@
     "Portfolio": "this website. python + javascript + three.js.",
     "fakeLive": "fake livestream prank app. it was \"Virtual Live\" on google play and passed 10K downloads.",
     "RobloxExploits": "zzqxck's Hub: a compact fly / follow / dance script UI for roblox."
-  }
+  },
+  "auto_since": "2026-10-15",
+  "auto_skip": []
 }

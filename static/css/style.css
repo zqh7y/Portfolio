@@ -331,6 +331,12 @@ h1, h2, h3, p { margin: 0; }
   font: 600 clamp(1.3rem, 2.2vw, 2rem)/1.1 var(--font-display); letter-spacing: -.03em;
 }
 .bento__card--now .serif { font-size: 1.12em; }
+/* "last push": the page's live pill, as a link */
+.now__push { align-self: flex-start; white-space: normal; color: var(--ink-2); transition: background .3s, color .3s; }
+.now__push b { color: var(--ink); font-weight: 600; }
+.now__push:hover, .now__push:focus-visible { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.now__push:hover b, .now__push:focus-visible b { color: var(--accent); }
+.now__push:focus-visible { border-radius: 999px; }
 .bento__card--where, .bento__card--daily { grid-column: span 2; }
 .bento__card--daily ul { display: flex; flex-wrap: wrap; gap: 8px; }
 .bento__card--daily li {
@@ -379,6 +385,28 @@ h1, h2, h3, p { margin: 0; }
   background: var(--accent); font: 700 clamp(14px, 1.3vw, 18px)/1 var(--font-display); letter-spacing: -.02em;
   rotate: -6deg; box-shadow: var(--shadow);
 }
+
+.project__badge--new { background: var(--ink); color: var(--accent); }
+.project__auto { color: var(--muted); }
+
+/* a new repo with no pictures yet: a little code window in the project's colour */
+.codecard {
+  width: min(78%, 460px); aspect-ratio: 4 / 3; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 18px 22px 22px; border-radius: 22px; color: #fff;
+  background: radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, var(--tint) 75%, var(--ink)), color-mix(in srgb, var(--tint) 45%, var(--ink)) 60%, color-mix(in srgb, var(--tint) 25%, var(--ink)));
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+  box-shadow: 0 40px 60px -30px color-mix(in srgb, var(--tint) 70%, #000);
+  rotate: -3deg; transition: rotate 1s var(--ease), scale 1s var(--ease);
+}
+.project__card:hover .codecard { rotate: 0deg; scale: 1.03; }
+.codecard__bar { display: flex; align-items: center; gap: 6px; }
+.codecard__bar i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, .55); }
+.codecard__bar small { margin-left: 8px; }
+.codecard__name {
+  font: 800 clamp(2rem, 4vw, 3.4rem)/.9 var(--font-display); font-variation-settings: "wdth" 80;
+  letter-spacing: -.05em; text-wrap: balance;
+}
+.codecard__lang { opacity: .85; }
 
 /* fakeLive: a tiny fake livestream */
 .live-mock {
@@ -993,6 +1021,9 @@ h1, h2, h3, p { margin: 0; }
   .project, .project--more { width: 100%; }
   .project__card { grid-template-columns: 1fr; height: auto; min-height: 0; }
   .project__visual { aspect-ratio: 16 / 10; }
+  .project__visual--screens { aspect-ratio: 1 / 1; }
+  .project__visual--screens .phones__shot { width: 31%; border-width: 4px; border-radius: 18px; }
+  .codecard { width: 62%; padding: 12px 16px 16px; border-radius: 16px; }
   .project__title { margin-top: 0; }
   .project__card--more { min-height: 320px; }
 
@@ -1059,5 +1090,5 @@ h1, h2, h3, p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .grain, .badge-spin svg, .hero__fallback, .pill--live i::after,
   .rn-atom, .mz-pin, .mz-you, .live-mock__pill, .live-mock__chat ul, .live-mock__hearts i { animation: none; }
-  .btn::before, .repo, .project__visual img { transition: none; }
+  .btn::before, .repo, .project__visual img, .project__visual .phones__shot, .codecard { transition: none; }
 }
