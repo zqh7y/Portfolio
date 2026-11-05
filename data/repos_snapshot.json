@@ -1,31 +1,108 @@
 {
-  "captured_at": "2026-10-07T22:00:00Z",
+  "captured_at": "2026-11-05T02:40:00+00:00",
   "repos": [
     {
+      "name": "DriftwoodGame",
+      "description": "Relaxing Fishing android game. Made in 8 hours.",
+      "language": "TypeScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "topics": [
+        "game",
+        "google-play",
+        "relaxing",
+        "typescript"
+      ],
+      "homepage": "",
+      "created_at": "2026-11-05T01:21:40Z",
+      "pushed_at": "2026-11-05T02:03:09Z",
+      "fork": false,
+      "html_url": "https://github.com/zqh7y/DriftwoodGame",
+      "languages": [
+        "TypeScript",
+        "HTML",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "GooglePlay-Game",
+      "description": "my first IDLE game in typescript. Will be released for Google Play soon. ",
+      "language": "TypeScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "topics": [
+        "game",
+        "idle-game",
+        "typescript"
+      ],
+      "homepage": "",
+      "created_at": "2026-10-22T22:59:11Z",
+      "pushed_at": "2026-11-02T00:03:07Z",
+      "fork": false,
+      "html_url": "https://github.com/zqh7y/GooglePlay-Game",
+      "languages": [
+        "TypeScript",
+        "Python",
+        "JavaScript"
+      ]
+    },
+    {
       "name": "RobloxExploits",
-      "description": "Roblox Exploits. Can be used in any executor for any roblox game.",
+      "description": "Roblox Exploits. Can be used in any executor and any game : )",
       "language": "Luau",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": [],
+      "topics": [
+        "exploit",
+        "roblox"
+      ],
       "homepage": "",
-      "created_at": "2026-10-12T20:00:00Z",
-      "pushed_at": "2026-10-14T00:15:00Z",
+      "created_at": "2026-10-12T18:27:45Z",
+      "pushed_at": "2026-10-21T23:16:59Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/RobloxExploits"
+      "html_url": "https://github.com/zqh7y/RobloxExploits",
+      "languages": []
+    },
+    {
+      "name": "zqh7y",
+      "description": "Profile baner repo",
+      "language": "Python",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "topics": [
+        "baner",
+        "profile-readme",
+        "python"
+      ],
+      "homepage": "",
+      "created_at": "2026-10-20T03:07:09Z",
+      "pushed_at": "2026-10-21T23:09:58Z",
+      "fork": false,
+      "html_url": "https://github.com/zqh7y/zqh7y",
+      "languages": []
     },
     {
       "name": "Portfolio",
       "description": "My portfolio",
-      "language": null,
-      "stargazers_count": 0,
+      "language": "JavaScript",
+      "stargazers_count": 1,
       "forks_count": 0,
-      "topics": null,
-      "homepage": null,
+      "topics": [
+        "javascript",
+        "portfolio-website",
+        "web"
+      ],
+      "homepage": "",
       "created_at": "2026-10-07T21:50:28Z",
-      "pushed_at": "2026-10-07T21:50:30Z",
+      "pushed_at": "2026-10-14T00:21:08Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/Portfolio"
+      "html_url": "https://github.com/zqh7y/Portfolio",
+      "languages": [
+        "JavaScript",
+        "CSS",
+        "HTML",
+        "Python"
+      ]
     },
     {
       "name": "PhotoClicker",
@@ -33,12 +110,17 @@
       "language": "Python",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
-      "homepage": null,
+      "topics": [
+        "clicker",
+        "photo-clicker",
+        "python"
+      ],
+      "homepage": "",
       "created_at": "2026-10-07T21:40:11Z",
-      "pushed_at": "2026-10-07T21:45:11Z",
+      "pushed_at": "2026-10-09T19:22:19Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/PhotoClicker"
+      "html_url": "https://github.com/zqh7y/PhotoClicker",
+      "languages": []
     },
     {
       "name": "CoinsHatcher",
@@ -53,9 +135,10 @@
       ],
       "homepage": "",
       "created_at": "2026-09-29T01:39:24Z",
-      "pushed_at": "2026-10-07T19:46:10Z",
+      "pushed_at": "2026-10-09T19:22:14Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/CoinsHatcher"
+      "html_url": "https://github.com/zqh7y/CoinsHatcher",
+      "languages": []
     },
     {
       "name": "RollPetsRNG",
@@ -63,12 +146,16 @@
       "language": "Luau",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
-      "homepage": null,
+      "topics": [
+        "incremental-game",
+        "roblox"
+      ],
+      "homepage": "",
       "created_at": "2026-09-30T15:42:42Z",
-      "pushed_at": "2026-10-03T15:57:47Z",
+      "pushed_at": "2026-10-09T19:22:08Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/RollPetsRNG"
+      "html_url": "https://github.com/zqh7y/RollPetsRNG",
+      "languages": []
     },
     {
       "name": "MetzV2",
@@ -91,9 +178,24 @@
       ],
       "homepage": "",
       "created_at": "2026-06-12T18:49:30Z",
-      "pushed_at": "2026-09-23T01:26:23Z",
+      "pushed_at": "2026-10-09T19:22:02Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/MetzV2"
+      "html_url": "https://github.com/zqh7y/MetzV2",
+      "languages": []
+    },
+    {
+      "name": "roblox-automation",
+      "description": "Roblox password cracker (Version 1)",
+      "language": "Python",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "topics": [],
+      "homepage": "",
+      "created_at": "2026-02-13T22:16:09Z",
+      "pushed_at": "2026-10-09T19:21:57Z",
+      "fork": false,
+      "html_url": "https://github.com/zqh7y/roblox-automation",
+      "languages": []
     },
     {
       "name": "Metz",
@@ -115,9 +217,10 @@
       ],
       "homepage": "",
       "created_at": "2024-10-11T17:45:14Z",
-      "pushed_at": "2024-11-06T05:55:48Z",
+      "pushed_at": "2026-10-09T19:21:50Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/Metz"
+      "html_url": "https://github.com/zqh7y/Metz",
+      "languages": []
     },
     {
       "name": "AIDocx",
@@ -125,12 +228,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2024-09-27T16:32:06Z",
-      "pushed_at": "2024-10-05T19:58:21Z",
+      "pushed_at": "2026-10-09T19:21:44Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/AIDocx"
+      "html_url": "https://github.com/zqh7y/AIDocx",
+      "languages": []
     },
     {
       "name": "TicAI",
@@ -138,12 +242,13 @@
       "language": "JavaScript",
       "stargazers_count": 1,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2024-06-22T18:18:07Z",
-      "pushed_at": "2024-09-18T16:58:36Z",
+      "pushed_at": "2026-10-09T19:21:39Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/TicAI"
+      "html_url": "https://github.com/zqh7y/TicAI",
+      "languages": []
     },
     {
       "name": "Poster",
@@ -151,12 +256,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2024-06-04T21:38:52Z",
-      "pushed_at": "2024-06-22T19:00:05Z",
+      "pushed_at": "2026-10-09T19:21:33Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/Poster"
+      "html_url": "https://github.com/zqh7y/Poster",
+      "languages": []
     },
     {
       "name": "NetBook",
@@ -164,12 +270,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2024-06-04T21:36:54Z",
-      "pushed_at": "2024-06-22T18:58:52Z",
+      "pushed_at": "2026-10-09T19:21:26Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/NetBook"
+      "html_url": "https://github.com/zqh7y/NetBook",
+      "languages": []
     },
     {
       "name": "fakeLive",
@@ -177,12 +284,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2024-06-04T21:22:04Z",
-      "pushed_at": "2024-06-22T18:57:36Z",
+      "pushed_at": "2026-10-09T19:21:21Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/fakeLive"
+      "html_url": "https://github.com/zqh7y/fakeLive",
+      "languages": []
     },
     {
       "name": "DailyRoutine",
@@ -190,12 +298,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": null,
       "created_at": "2024-06-15T17:36:46Z",
-      "pushed_at": "2024-06-18T19:51:16Z",
+      "pushed_at": "2026-10-09T19:21:15Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/DailyRoutine"
+      "html_url": "https://github.com/zqh7y/DailyRoutine",
+      "languages": []
     },
     {
       "name": "BuyList",
@@ -203,12 +312,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": null,
       "created_at": "2024-06-05T17:04:12Z",
-      "pushed_at": "2024-06-05T17:08:32Z",
+      "pushed_at": "2026-10-09T19:21:09Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/BuyList"
+      "html_url": "https://github.com/zqh7y/BuyList",
+      "languages": []
     },
     {
       "name": "PrivatePhotos",
@@ -216,12 +326,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2024-06-04T21:47:08Z",
-      "pushed_at": "2024-06-04T21:49:43Z",
+      "pushed_at": "2026-10-09T19:21:03Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/PrivatePhotos"
+      "html_url": "https://github.com/zqh7y/PrivatePhotos",
+      "languages": []
     },
     {
       "name": "PostUp",
@@ -229,12 +340,13 @@
       "language": null,
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": null,
       "created_at": "2024-06-04T21:41:21Z",
-      "pushed_at": "2024-06-04T21:41:22Z",
+      "pushed_at": "2026-10-09T19:20:58Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/PostUp"
+      "html_url": "https://github.com/zqh7y/PostUp",
+      "languages": []
     },
     {
       "name": "GetTogetherGo",
@@ -242,12 +354,13 @@
       "language": null,
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": null,
       "created_at": "2024-06-04T21:32:02Z",
-      "pushed_at": "2024-06-04T21:34:52Z",
+      "pushed_at": "2026-10-09T19:20:52Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/GetTogetherGo"
+      "html_url": "https://github.com/zqh7y/GetTogetherGo",
+      "languages": []
     },
     {
       "name": "Alenas_Portfolio",
@@ -255,12 +368,13 @@
       "language": "SCSS",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2023-08-19T16:05:37Z",
-      "pushed_at": "2023-08-19T16:06:55Z",
+      "pushed_at": "2026-10-09T19:20:46Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/Alenas_Portfolio"
+      "html_url": "https://github.com/zqh7y/Alenas_Portfolio",
+      "languages": []
     },
     {
       "name": "MeetingsApp",
@@ -268,12 +382,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": null,
       "created_at": "2023-05-22T19:10:02Z",
-      "pushed_at": "2023-05-22T19:30:55Z",
+      "pushed_at": "2026-10-09T19:20:40Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/MeetingsApp"
+      "html_url": "https://github.com/zqh7y/MeetingsApp",
+      "languages": []
     },
     {
       "name": "GTG-v1",
@@ -281,12 +396,13 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "topics": null,
+      "topics": [],
       "homepage": "",
       "created_at": "2023-05-06T17:17:48Z",
-      "pushed_at": "2023-05-06T17:25:52Z",
+      "pushed_at": "2026-10-09T19:20:34Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/GTG-v1"
+      "html_url": "https://github.com/zqh7y/GTG-v1",
+      "languages": []
     },
     {
       "name": "RPSgameJustAriel.github.io",
@@ -302,9 +418,10 @@
       ],
       "homepage": "",
       "created_at": "2022-12-22T14:12:29Z",
-      "pushed_at": "2022-12-22T14:13:26Z",
+      "pushed_at": "2026-10-09T19:20:16Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/RPSgameJustAriel.github.io"
+      "html_url": "https://github.com/zqh7y/RPSgameJustAriel.github.io",
+      "languages": []
     },
     {
       "name": "JustAriel.github.io",
@@ -322,7 +439,8 @@
       "created_at": "2022-09-27T13:39:57Z",
       "pushed_at": "2022-09-28T04:50:43Z",
       "fork": false,
-      "html_url": "https://github.com/zqh7y/JustAriel.github.io"
+      "html_url": "https://github.com/zqh7y/JustAriel.github.io",
+      "languages": []
     }
   ]
 }

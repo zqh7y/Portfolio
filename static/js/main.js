@@ -1,6 +1,6 @@
 import {
   splitText, initCursor, initMagnetic, initTilt, initScramble,
-  initStickers, initClocks, initMarquees, initPile, toast,
+  initStickers, initClocks, initAgo, initMarquees, initPile, toast,
 } from './fx.js';
 import { initTagSphere } from './tag-sphere.js';
 import { initRepos } from './repos.js';
@@ -66,6 +66,7 @@ initScramble();
 initStickers(gsap);
 initPile(gsap, reduce);
 initClocks();
+initAgo();
 initMarquees(gsap, getVelocity);
 
 $$('[data-copy]').forEach((btn) => btn.addEventListener('click', async () => {

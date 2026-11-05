@@ -1,4 +1,6 @@
 // "The archive": every public repo, served by the Python API (live GitHub or snapshot).
+import { ago } from './fx.js';
+
 const LANG_COLORS = {
   JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572a5', Luau: '#00a2ff',
   HTML: '#e34c26', CSS: '#663399', SCSS: '#c6538c', Kotlin: '#a97bff', Java: '#b07219',
@@ -14,17 +16,6 @@ function h(tag, props = {}, ...children) {
   }
   for (const c of children.flat()) if (c != null && c !== false) el.append(c);
   return el;
-}
-
-const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
-function ago(iso) {
-  if (!iso) return '';
-  const secs = (new Date(iso) - Date.now()) / 1000;
-  const units = [['year', 31536000], ['month', 2592000], ['week', 604800], ['day', 86400], ['hour', 3600], ['minute', 60]];
-  for (const [unit, size] of units) {
-    if (Math.abs(secs) >= size) return rtf.format(Math.round(secs / size), unit);
-  }
-  return 'just now';
 }
 
 async function getJSON(url) {

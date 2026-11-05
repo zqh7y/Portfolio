@@ -1,12 +1,17 @@
 name: Deploy to GitHub Pages
 
+# Runs on every push to master, and once a day on its own so the site keeps
+# itself up to date: new repos get a project card, the archive, language counts,
+# "last push", the years and the "now" date all refresh. See scripts/sync.py.
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: "23 4 * * *" # every day, 04:23 UTC (07:23 in Holon)
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write # the daily sync commits what it found back to master
   pages: write
   id-token: write
 
@@ -25,7 +30,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt pillow
+
+      - name: Sync projects from GitHub
+        id: sync
+        continue-on-error: true # if GitHub is down, still deploy what we have
+        run: python scripts/sync.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Save what the sync found
+        if: steps.sync.outcome == 'success'
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data static/img
+          if git diff --cached --quiet; then
+            echo "nothing new on GitHub"
+          else
+            git commit -m "Daily sync: projects and repo snapshot"
+            git pull --rebase origin master && git push origin HEAD:master
+          fi
+
       - run: python build.py
         env:
           SITE_URL: https://zqh7y.github.io/Portfolio/

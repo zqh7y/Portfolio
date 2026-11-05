@@ -163,6 +163,25 @@ export function initClocks() {
   setInterval(tick, 1000);
 }
 
+// "3 hours ago" for any ISO date; [data-ago] elements keep themselves fresh
+const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+export function ago(iso) {
+  if (!iso) return '';
+  const secs = (new Date(iso) - Date.now()) / 1000;
+  const units = [['year', 31536000], ['month', 2592000], ['week', 604800], ['day', 86400], ['hour', 3600], ['minute', 60]];
+  for (const [unit, size] of units) {
+    if (Math.abs(secs) >= size) return rtf.format(Math.round(secs / size), unit);
+  }
+  return 'just now';
+}
+
+export function initAgo() {
+  const nodes = [...document.querySelectorAll('[data-ago]')];
+  const tick = () => nodes.forEach((n) => { n.textContent = ago(n.getAttribute('datetime')); });
+  tick();
+  if (nodes.length) setInterval(tick, 60_000);
+}
+
 export function initMarquees(gsap, getVelocity) {
   const rows = [...document.querySelectorAll('[data-marquee]')].map((el) => ({
     el, track: el.querySelector('.marquee__track'), dir: Number(el.dataset.marquee) || 1, x: 0, w: 0,

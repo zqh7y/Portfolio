@@ -12,11 +12,12 @@ from pathlib import Path
 
 from flask import Flask, jsonify, render_template
 
-from backend import github, hatch
+from backend import derive, github, hatch
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 SNAPSHOT = DATA / "repos_snapshot.json"
+AUTO_PROJECTS = DATA / "auto_projects.json"
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
@@ -26,15 +27,30 @@ def load_profile() -> dict:
         return json.load(f)
 
 
+def load_auto_projects() -> list[dict]:
+    """Project cards the daily sync wrote for new repos (empty until it finds one)."""
+    try:
+        with AUTO_PROJECTS.open(encoding="utf-8") as f:
+            return json.load(f).get("projects", [])
+    except (OSError, ValueError):
+        return []
+
+
 PROFILE = load_profile()
 
 
+def site_profile() -> dict:
+    """The profile with every automatic number, date and new project filled in."""
+    return derive.derive(PROFILE, repos_payload()["repos"], load_auto_projects())
+
+
 def render_page(static: bool = False) -> str:
-    return render_template("index.html", p=PROFILE, year=datetime.now().year, static_build=static)
+    return render_template("index.html", p=site_profile(), year=datetime.now().year, static_build=static)
 
 
 def public_profile() -> dict:
-    return {k: v for k, v in PROFILE.items() if k not in ("hidden_repos", "description_overrides")}
+    hide = ("hidden_repos", "description_overrides", "auto_skip", "auto_since")
+    return {k: v for k, v in site_profile().items() if k not in hide}
 
 
 def repos_payload() -> dict:
