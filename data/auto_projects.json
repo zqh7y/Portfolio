@@ -1,4 +1,27 @@
 {
-  "generated_at": "2026-11-05T02:38:47+00:00",
-  "projects": []
+  "generated_at": "2026-11-06T12:14:30+00:00",
+  "projects": [
+    {
+      "id": "auto-fakelivesv2",
+      "title": "FakeLives",
+      "kind": "project · typescript",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/FakeLivesV2",
+      "tint": "#3178c6",
+      "stack": [
+        "TypeScript",
+        "Expo",
+        "Livestream",
+        "Typescript"
+      ],
+      "blurb": "FakeLives makes it look like you are streaming live to thousands of people. Pick a platform look (TikTok, Instagram, YouTube, Facebook or Twitch), a name, a viewer count and how the chat should behave, hit Go live, and your camera fills the screen under a verified badge, a…",
+      "badge": "new",
+      "auto": true,
+      "created_at": "2026-11-05T14:52:58Z",
+      "image": "img/auto/fakelivesv2/1.webp",
+      "image_fit": "cover",
+      "visual": "image",
+      "pushed_at": "2026-11-05T15:11:06Z"
+    }
+  ]
 }
