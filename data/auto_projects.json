@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-11-07T11:10:28+00:00",
+  "generated_at": "2026-11-12T12:54:58+00:00",
   "projects": [
+    {
+      "id": "auto-bunnybrigade",
+      "title": "Bunny Brigade",
+      "kind": "project · typescript",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/BunnyBrigade",
+      "tint": "#3178c6",
+      "stack": [
+        "TypeScript"
+      ],
+      "blurb": "A rabbits-vs-foxes lane battler with a merge backpack, built with TypeScript + Vite and drawn entirely on a canvas (no image files).",
+      "badge": "new",
+      "auto": true,
+      "created_at": "2026-11-11T12:16:49Z",
+      "visual": "code",
+      "pushed_at": "2026-11-11T15:10:07Z"
+    },
     {
       "id": "auto-kickit",
       "title": "Kick-It!",
