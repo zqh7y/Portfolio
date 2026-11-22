@@ -1,39 +1,24 @@
 {
-  "generated_at": "2026-11-18T13:11:49+00:00",
+  "generated_at": "2026-11-22T12:41:32+00:00",
   "projects": [
     {
-      "id": "auto-stonerush",
-      "title": "Stone Rush",
-      "kind": "project · html",
+      "id": "auto-gameassets",
+      "title": "GameAssets",
+      "kind": "game · python",
       "year": "2026",
-      "repo": "https://github.com/zqh7y/StoneRush",
-      "tint": "#ff8a3d",
+      "repo": "https://github.com/zqh7y/GameAssets",
+      "tint": "#3572a5",
       "stack": [
-        "HTML"
+        "Python"
       ],
-      "blurb": "fresh off the keyboard. the write-up is coming.",
+      "blurb": "Staging area for the next game's assets and working scripts. Once everything is ready, it moves into the main project repo.",
       "badge": "new",
       "auto": true,
-      "created_at": "2026-11-17T03:10:16Z",
-      "visual": "code",
-      "pushed_at": "2026-11-17T23:23:20Z"
-    },
-    {
-      "id": "auto-zoopvp",
-      "title": "ZooPVP",
-      "kind": "project · typescript",
-      "year": "2026",
-      "repo": "https://github.com/zqh7y/ZooPVP",
-      "tint": "#3178c6",
-      "stack": [
-        "TypeScript"
-      ],
-      "blurb": "fresh off the keyboard. the write-up is coming.",
-      "badge": "new",
-      "auto": true,
-      "created_at": "2026-11-14T17:34:34Z",
-      "visual": "code",
-      "pushed_at": "2026-11-15T12:42:30Z"
+      "created_at": "2026-11-21T14:49:16Z",
+      "image": "img/auto/gameassets/1.webp",
+      "image_fit": "cover",
+      "visual": "image",
+      "pushed_at": "2026-11-22T05:00:38Z"
     },
     {
       "id": "auto-bunnybrigade",
