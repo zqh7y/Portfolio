@@ -1,6 +1,25 @@
 {
-  "generated_at": "2026-11-23T14:54:27+00:00",
+  "generated_at": "2026-11-24T14:59:33+00:00",
   "projects": [
+    {
+      "id": "auto-game_assets2",
+      "title": "Game_Assets2",
+      "kind": "project · python",
+      "year": "2026",
+      "repo": "https://github.com/zqh7y/Game_Assets2",
+      "tint": "#3572a5",
+      "stack": [
+        "Python"
+      ],
+      "blurb": "Every brawler has walk, run and attack rows. Nana only holds her slipper in the attack row.",
+      "badge": "new",
+      "auto": true,
+      "created_at": "2026-11-23T16:47:45Z",
+      "image": "img/auto/game_assets2/1.webp",
+      "image_fit": "cover",
+      "visual": "image",
+      "pushed_at": "2026-11-24T12:48:39Z"
+    },
     {
       "id": "auto-gameassets",
       "title": "GameAssets",
